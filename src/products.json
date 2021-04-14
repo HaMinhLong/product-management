@@ -1,0 +1,94 @@
+{
+  "products": [
+    {
+      "id": "shirt1",
+      "name": "shirt1",
+      "price": "14.3",
+      "images": [],
+      "colors": ["pink", "green"],
+      "availableSizes": ["S", "M", "L"],
+      "describe": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "category": "shirt"
+    },
+    {
+      "id": "shirt2",
+      "name": "shirt2",
+      "price": "16.7",
+      "images": [],
+      "colors": ["red", "blue"],
+      "availableSizes": ["S", "M", "L"],
+      "describe": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "category": "shirt"
+    },
+    {
+      "id": "shirt3",
+      "name": "shirt3",
+      "price": "12.5",
+      "images": [],
+      "colors": ["white", "black", "orange"],
+      "availableSizes": ["S", "M", "L"],
+      "describe": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "category": "shirt"
+    },
+    {
+      "id": "trousers1",
+      "name": "trousers1",
+      "price": "19.3",
+      "images": [],
+      "colors": ["blue", "green"],
+      "availableSizes": ["S", "M", "L"],
+      "describe": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "category": "trousers"
+    },
+    {
+      "id": "trousers2",
+      "name": "trousers2",
+      "price": "11.7",
+      "images": [],
+      "colors": ["red", "blue"],
+      "availableSizes": ["S", "M", "L"],
+      "describe": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "category": "trousers"
+    },
+    {
+      "id": "trousers3",
+      "name": "trousers3",
+      "price": "19.5",
+      "images": [],
+      "colors": ["white", "black", "orange"],
+      "availableSizes": ["S", "M", "L"],
+      "describe": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "category": "trousers"
+    },
+    {
+      "id": "dress1",
+      "name": "dress1",
+      "price": "20",
+      "images": [],
+      "colors": ["red", "green", "gray"],
+      "availableSizes": ["S", "M", "L"],
+      "describe": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "category": "dress"
+    },
+    {
+      "id": "dress2",
+      "name": "dress2",
+      "price": "19.5",
+      "images": [],
+      "colors": ["black", "white"],
+      "availableSizes": ["L", "XL"],
+      "describe": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "category": "dress"
+    },
+    {
+      "id": "dress3",
+      "name": "dress3",
+      "price": "15.7",
+      "images": [],
+      "colors": ["orange", "pink"],
+      "availableSizes": ["L", "XL", "XXL"],
+      "describe": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "category": "dress"
+    }
+  ]
+}
