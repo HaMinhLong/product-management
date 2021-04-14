@@ -3,7 +3,8 @@ class Product extends Component {
   render() {
     return (
       <section className="product-container">
-        <h1>Product </h1>
+        <div className="img-box">1</div>
+        <div className="product-details">2</div>
       </section>
     );
   }
