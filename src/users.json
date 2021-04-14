@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "username": "nar",
+      "password": "1234",
+      "phoneNumber": "1234",
+      "permission": "1"
+    },
+    {
+      "username": "san",
+      "password": "1234",
+      "phoneNumber": "1234",
+      "permission": "2"
+    }
+  ]
+}
