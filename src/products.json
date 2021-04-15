@@ -4,7 +4,10 @@
       "id": "shirt1",
       "name": "shirt1",
       "price": "14.3",
-      "images": ["./images/shirt1.jpg"],
+      "images": [
+        "https://i.pinimg.com/564x/34/4e/8f/344e8f3ee8593138ecc6ce65a2b75f89.jpg",
+        "https://i.pinimg.com/564x/60/fb/16/60fb16d47c1ce1d23ce84b3c7cbea184.jpg"
+      ],
       "colors": ["pink", "green"],
       "availableSizes": ["XS", "M", "XL"],
       "describe": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -14,7 +17,10 @@
       "id": "shirt2",
       "name": "shirt2",
       "price": "16.7",
-      "images": ["./images/shirt2.jpg"],
+      "images": [
+        "https://i.pinimg.com/564x/d3/6b/02/d36b02c39dd546afb860136cc08e3882.jpg",
+        "https://i.pinimg.com/564x/59/44/56/594456800f76c1eb27c8676d907fb8e1.jpg"
+      ],
       "colors": ["red", "blue"],
       "availableSizes": ["M", "XL", "XXL"],
       "describe": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -24,8 +30,11 @@
       "id": "shirt3",
       "name": "shirt3",
       "price": "12.5",
-      "images": ["./images/shirt3.jpg"],
-      "colors": ["white", "black", "orange"],
+      "images": [
+        "https://i.pinimg.com/564x/e1/f0/d0/e1f0d0b7e216d17ebaefa7d79cde9f64.jpg",
+        "https://i.pinimg.com/564x/d5/f9/d6/d5f9d6854987d39991698cc06755ef59.jpg"
+      ],
+      "colors": ["purple", "black", "orange"],
       "availableSizes": ["S", "M", "L"],
       "describe": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       "category": "shirt"
@@ -34,7 +43,10 @@
       "id": "trousers1",
       "name": "trousers1",
       "price": "19.3",
-      "images": [],
+      "images": [
+        "https://i.pinimg.com/564x/d3/00/f5/d300f52d98f4bb997f9d2306cf8ae9ee.jpg",
+        "https://i.pinimg.com/564x/34/4a/bd/344abdb2b2bbb36c2a3df1160ddb822d.jpg"
+      ],
       "colors": ["blue", "green"],
       "availableSizes": ["S", "M", "L"],
       "describe": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -44,7 +56,10 @@
       "id": "trousers2",
       "name": "trousers2",
       "price": "11.7",
-      "images": [],
+      "images": [
+        "https://i.pinimg.com/564x/d3/00/f5/d300f52d98f4bb997f9d2306cf8ae9ee.jpg",
+        "https://i.pinimg.com/564x/34/4a/bd/344abdb2b2bbb36c2a3df1160ddb822d.jpg"
+      ],
       "colors": ["red", "blue"],
       "availableSizes": ["S", "M", "L"],
       "describe": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -54,8 +69,24 @@
       "id": "trousers3",
       "name": "trousers3",
       "price": "19.5",
-      "images": [],
-      "colors": ["white", "black", "orange"],
+      "images": [
+        "https://i.pinimg.com/564x/d3/00/f5/d300f52d98f4bb997f9d2306cf8ae9ee.jpg",
+        "https://i.pinimg.com/564x/34/4a/bd/344abdb2b2bbb36c2a3df1160ddb822d.jpg"
+      ],
+      "colors": ["gray", "black", "orange"],
+      "availableSizes": ["S", "M", "L"],
+      "describe": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "category": "trousers"
+    },
+    {
+      "id": "trousers4",
+      "name": "trousers4",
+      "price": "11.5",
+      "images": [
+        "https://i.pinimg.com/564x/d3/00/f5/d300f52d98f4bb997f9d2306cf8ae9ee.jpg",
+        "https://i.pinimg.com/564x/34/4a/bd/344abdb2b2bbb36c2a3df1160ddb822d.jpg"
+      ],
+      "colors": ["purple", "black", "orange"],
       "availableSizes": ["S", "M", "L"],
       "describe": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       "category": "trousers"
@@ -64,7 +95,10 @@
       "id": "dress1",
       "name": "dress1",
       "price": "20",
-      "images": [],
+      "images": [
+        "https://i.pinimg.com/564x/bf/2b/0c/bf2b0c41eaccb9f9294cae61e5d6a326.jpg",
+        "https://i.pinimg.com/564x/bc/e5/c0/bce5c0868802b976e563f883c9f63833.jpg"
+      ],
       "colors": ["red", "green", "gray"],
       "availableSizes": ["S", "M", "L"],
       "describe": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -74,8 +108,11 @@
       "id": "dress2",
       "name": "dress2",
       "price": "19.5",
-      "images": [],
-      "colors": ["black", "white"],
+      "images": [
+        "https://i.pinimg.com/564x/f2/4a/ae/f24aae7ca60ec16553198eb05cfa3b9d.jpg",
+        "https://i.pinimg.com/564x/a6/72/73/a672736b25e93833e98d512fee9af162.jpg"
+      ],
+      "colors": ["black", "blue"],
       "availableSizes": ["L", "XL"],
       "describe": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       "category": "dress"
@@ -84,7 +121,10 @@
       "id": "dress3",
       "name": "dress3",
       "price": "15.7",
-      "images": [],
+      "images": [
+        "https://i.pinimg.com/564x/0a/ba/1d/0aba1da68771256a041decabaae8483f.jpg",
+        "https://i.pinimg.com/564x/83/66/67/8366678d44a632243b09bd7e96d8e16c.jpg"
+      ],
       "colors": ["orange", "pink"],
       "availableSizes": ["L", "XL", "XXL"],
       "describe": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -94,7 +134,10 @@
       "id": "shoes1",
       "name": "shoes1",
       "price": "25.2",
-      "images": [],
+      "images": [
+        "https://i.pinimg.com/564x/c6/ba/a6/c6baa61d41f81a45591fe236c063d385.jpg",
+        "https://i.pinimg.com/564x/8f/72/0c/8f720ca113a06515af6413b879f2e489.jpg"
+      ],
       "colors": ["red", "green", "gray"],
       "availableSizes": ["S", "M", "L"],
       "describe": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -104,8 +147,11 @@
       "id": "shoes2",
       "name": "shoes2",
       "price": "19.5",
-      "images": [],
-      "colors": ["black", "white"],
+      "images": [
+        "https://i.pinimg.com/564x/c6/ba/a6/c6baa61d41f81a45591fe236c063d385.jpg",
+        "https://i.pinimg.com/564x/8f/72/0c/8f720ca113a06515af6413b879f2e489.jpg"
+      ],
+      "colors": ["black", "blue"],
       "availableSizes": ["L", "XL"],
       "describe": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       "category": "shoes"
@@ -114,7 +160,10 @@
       "id": "shoes3",
       "name": "shoes3",
       "price": "25.7",
-      "images": [],
+      "images": [
+        "https://i.pinimg.com/564x/c6/ba/a6/c6baa61d41f81a45591fe236c063d385.jpg",
+        "https://i.pinimg.com/564x/8f/72/0c/8f720ca113a06515af6413b879f2e489.jpg"
+      ],
       "colors": ["orange", "pink"],
       "availableSizes": ["L", "XL", "XXL"],
       "describe": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",

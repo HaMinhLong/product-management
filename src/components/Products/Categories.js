@@ -10,8 +10,9 @@ class Categories extends Component {
       categories: data.categories,
     };
   }
-  render(props) {
+  render() {
     const { categories } = this.state;
+    const { filterProducts } = this.props;
     return (
       <section className="categories-container">
         <div className="title">
@@ -21,10 +22,7 @@ class Categories extends Component {
         <div className="categories-box">
           <ul>
             {categories.map((category) => (
-              <li
-                onClick={() => this.props.filterProducts(category)}
-                key={category}
-              >
+              <li onClick={() => filterProducts(category)} key={category}>
                 <p>{category}</p>
               </li>
             ))}

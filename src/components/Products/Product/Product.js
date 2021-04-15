@@ -2,20 +2,25 @@ import React, { Component } from "react";
 
 import { Link } from "react-router-dom";
 class Product extends Component {
-  render(props) {
+  render() {
+    const { product } = this.props;
     return (
       <section className="product-container">
-        <div className="img-box">This is image</div>
+        <div className="img-box">
+          <Link to={`./products/${product.id}`}>
+            <img src={`${product.images[0]}`} alt="" />
+          </Link>
+        </div>
         <div className="product-details">
           <div className="product-name">
-            <h1>{this.props.product.name}</h1>
+            <h1>{product.name}</h1>
             <span className="new">New</span>
           </div>
           <div className="description">
-            <p>{this.props.product.describe}</p>
+            <p>{product.describe}</p>
           </div>
           <div className="colors-container">
-            {this.props.product.colors.map((color) => (
+            {product.colors.map((color) => (
               <span
                 style={{ borderColor: color }}
                 className="color"
@@ -25,7 +30,7 @@ class Product extends Component {
             ))}
           </div>
           <div className="sizes-container">
-            {this.props.product.availableSizes.map((size) => (
+            {product.availableSizes.map((size) => (
               <span key={size}>{size}</span>
             ))}
           </div>
@@ -36,7 +41,7 @@ class Product extends Component {
             </Link>
             <div className="price">
               <i className="fas fa-dollar-sign"></i>
-              <p>{this.props.product.price}</p>
+              <p>{product.price}</p>
             </div>
           </div>
         </div>
