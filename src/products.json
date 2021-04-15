@@ -4,9 +4,9 @@
       "id": "shirt1",
       "name": "shirt1",
       "price": "14.3",
-      "images": [],
+      "images": ["./images/shirt1.jpg"],
       "colors": ["pink", "green"],
-      "availableSizes": ["S", "M", "L"],
+      "availableSizes": ["XS", "M", "XL"],
       "describe": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       "category": "shirt"
     },
@@ -14,9 +14,9 @@
       "id": "shirt2",
       "name": "shirt2",
       "price": "16.7",
-      "images": [],
+      "images": ["./images/shirt2.jpg"],
       "colors": ["red", "blue"],
-      "availableSizes": ["S", "M", "L"],
+      "availableSizes": ["M", "XL", "XXL"],
       "describe": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       "category": "shirt"
     },
@@ -24,7 +24,7 @@
       "id": "shirt3",
       "name": "shirt3",
       "price": "12.5",
-      "images": [],
+      "images": ["./images/shirt3.jpg"],
       "colors": ["white", "black", "orange"],
       "availableSizes": ["S", "M", "L"],
       "describe": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -89,6 +89,36 @@
       "availableSizes": ["L", "XL", "XXL"],
       "describe": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       "category": "dress"
+    },
+    {
+      "id": "shoes1",
+      "name": "shoes1",
+      "price": "25.2",
+      "images": [],
+      "colors": ["red", "green", "gray"],
+      "availableSizes": ["S", "M", "L"],
+      "describe": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "category": "shoes"
+    },
+    {
+      "id": "shoes2",
+      "name": "shoes2",
+      "price": "19.5",
+      "images": [],
+      "colors": ["black", "white"],
+      "availableSizes": ["L", "XL"],
+      "describe": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "category": "shoes"
+    },
+    {
+      "id": "shoes3",
+      "name": "shoes3",
+      "price": "25.7",
+      "images": [],
+      "colors": ["orange", "pink"],
+      "availableSizes": ["L", "XL", "XXL"],
+      "describe": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "category": "shoes"
     }
   ]
 }
