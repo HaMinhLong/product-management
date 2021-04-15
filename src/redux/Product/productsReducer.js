@@ -1,6 +1,6 @@
 import * as actions from "./productsTypes";
 
-const productReducer = (state = [], action) => {
+const productsReducer = (state = [], action) => {
   switch (action.type) {
     case actions.FETCH_PRODUCTS:
       return action.payload;
@@ -15,4 +15,4 @@ const productReducer = (state = [], action) => {
   }
 };
 
-export default productReducer;
+export default productsReducer;

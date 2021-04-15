@@ -5,7 +5,7 @@ export class AddProduct extends Component {
   render() {
     return (
       <section>
-        <Banner title="Thêm sản phẩm" />
+        <Banner title={["Thêm sản phẩm"]} />
         <section className="add-product">
           <p>add product</p>
         </section>

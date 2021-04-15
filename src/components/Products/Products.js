@@ -1,40 +1,39 @@
 import React, { Component } from "react";
 
 import Product from "./Product/Product";
-import data from "../../products.json";
 
 import Categories from "./Categories";
 import Banner from "../Layout/Banner";
 import { connect } from "react-redux";
-import * as actions from "../../redux/Product/productsTypes";
+// import * as actions from "../../redux/Product/productsTypes";
+import { fetchProducts } from "../../redux/Product/productsActions";
 
 class Products extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      products: data.products,
+      products: [],
     };
   }
 
   filterProducts = (category) => {
     this.setState({
-      products: data.products.filter(
+      products: this.props.products.filter(
         (product) => product.category === category
       ),
     });
   };
 
   componentDidMount = () => {
-    console.log("componentDidMount");
-    console.log(this.props.products);
+    this.props.fetchProducts();
   };
 
   render() {
     const { products } = this.state;
     return (
       <section>
-        <Banner title="Danh sách sản phẩm" />
+        <Banner title={["Danh sách sản phẩm"]} />
         <section className="main-container">
           <Categories filterProducts={this.filterProducts} />
           <section className="products-container">
@@ -43,7 +42,7 @@ class Products extends Component {
                 <p>
                   Hiển thị:{" "}
                   <span>
-                    {products.length}/{data.products.length}
+                    {products.length}/{this.props.products.length}
                   </span>{" "}
                   sản phẩm
                 </p>
@@ -92,9 +91,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchProducts: () => {
-      dispatch({
-        type: actions.FETCH_PRODUCTS,
-      });
+      dispatch(fetchProducts());
     },
   };
 };

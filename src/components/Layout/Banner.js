@@ -1,18 +1,32 @@
 import React, { Component } from "react";
-
+import { Link } from "react-router-dom";
 import svg from "../../images/Path 61.svg";
 
 class Banner extends Component {
-  render(props) {
+  render() {
+    const { title } = this.props;
     return (
       <section className="banner">
         <div>
           <i className="fas fa-home"></i>
-          <span>Trang chủ</span>
-          <img src={svg} alt="" />
-          <span>{this.props.title}</span>
+          <span>
+            <Link to="/">Trang chủ</Link>
+          </span>
+          {title.map((tt) => (
+            <span key={tt}>
+              <img src={svg} alt="" />
+              <span>{tt}</span>
+            </span>
+          ))}
         </div>
-        <p>{this.props.title}</p>
+        <p>
+          {title.map((tt) => (
+            <>
+              <span>{tt}</span>
+              <img src={svg} alt="" />
+            </>
+          ))}
+        </p>
       </section>
     );
   }
