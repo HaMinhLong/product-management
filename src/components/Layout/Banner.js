@@ -20,12 +20,8 @@ class Banner extends Component {
           ))}
         </div>
         <p>
-          {title.map((tt) => (
-            <>
-              <span>{tt}</span>
-              <img src={svg} alt="" />
-            </>
-          ))}
+          <span>{title[0]}</span>
+          <img src={svg} alt="" />
         </p>
       </section>
     );
