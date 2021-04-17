@@ -46,3 +46,41 @@ export const deleteProduct = (id) => async (dispatch) => {
     console.log("Error Delete Product: " + error.message);
   }
 };
+
+export const filterProducts = (products, size) => (dispatch) => {
+  dispatch({
+    type: actions.FILTER_PRODUCTS_BY_SIZE,
+    payload: {
+      size: size,
+      items:
+        size === ""
+          ? products
+          : products.filter((x) => x.availableSizes.indexOf(size) >= 0),
+    },
+  });
+};
+
+export const sortProducts = (filteredProducts, sort) => (dispatch) => {
+  const sortedProducts = filteredProducts.slice();
+  if (sort === "latest") {
+    sortedProducts.sort((a, b) => (a.id > b.id ? 1 : -1));
+  } else {
+    sortedProducts.sort((a, b) =>
+      sort === "lowest"
+        ? a.price > b.price
+          ? 1
+          : -1
+        : a.price > b.price
+        ? -1
+        : 1
+    );
+  }
+  console.log(sortedProducts);
+  dispatch({
+    type: actions.ORDER_PRODUCTS_BY_PRICE,
+    payload: {
+      sort: sort,
+      items: sortedProducts,
+    },
+  });
+};
