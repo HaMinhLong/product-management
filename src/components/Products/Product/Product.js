@@ -14,7 +14,7 @@ class Product extends Component {
 
   deleteProduct = () => {
     this.props.deleteProduct(this.props.product.id);
-    this.props.filterProduct(this.props.product.id);
+    // this.props.filterProduct(this.props.product.id);
     this.setState({
       confirmDeleteBox: false,
     });
@@ -22,6 +22,7 @@ class Product extends Component {
 
   render() {
     const { product } = this.props;
+
     return (
       <section className="product-container">
         <div className="img-box">
@@ -38,19 +39,23 @@ class Product extends Component {
             <p>{product.describe}</p>
           </div>
           <div className="colors-container">
-            {product.colors.map((color) => (
-              <span
-                style={{ borderColor: color }}
-                className="color"
-                primary={`"${color}"`}
-                key={color}
-              ></span>
-            ))}
+            {product.colors &&
+              product.colors.length > 0 &&
+              product.colors.map((color) => (
+                <span
+                  style={{ borderColor: color }}
+                  className="color"
+                  primary={`"${color}"`}
+                  key={color}
+                ></span>
+              ))}
           </div>
           <div className="sizes-container">
-            {product.availableSizes.map((size) => (
-              <span key={size}>{size}</span>
-            ))}
+            {product.availableSizes &&
+              product.availableSizes.length > 0 &&
+              product.availableSizes.map((size) => (
+                <span key={size}>{size}</span>
+              ))}
           </div>
           <div className="buy-price">
             <Link to="/" className="buy">

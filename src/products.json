@@ -48,7 +48,7 @@
         "https://i.pinimg.com/564x/34/4a/bd/344abdb2b2bbb36c2a3df1160ddb822d.jpg"
       ],
       "colors": ["blue", "green"],
-      "availableSizes": ["S", "M", "L"],
+      "availableSizes": ["XS", "M", "XL"],
       "describe": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       "category": "trousers"
     },
@@ -61,7 +61,7 @@
         "https://i.pinimg.com/564x/34/4a/bd/344abdb2b2bbb36c2a3df1160ddb822d.jpg"
       ],
       "colors": ["red", "blue"],
-      "availableSizes": ["S", "M", "L"],
+      "availableSizes": ["S", "M", "XXL"],
       "describe": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       "category": "trousers"
     },

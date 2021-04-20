@@ -12,12 +12,14 @@ class Banner extends Component {
           <span>
             <Link to="/">Trang chủ</Link>
           </span>
-          {title.map((tt) => (
-            <span key={tt}>
-              <img src={svg} alt="" />
-              <span>{tt}</span>
-            </span>
-          ))}
+          {title &&
+            title.length > 0 &&
+            title.map((tt) => (
+              <span key={tt}>
+                <img src={svg} alt="" />
+                <span>{tt}</span>
+              </span>
+            ))}
         </div>
         <p>
           <span>{title[0]}</span>

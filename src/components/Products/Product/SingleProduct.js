@@ -67,20 +67,24 @@ class SingleProduct extends Component {
                 <p className="new">New</p>
                 <div className="colors-container">
                   <span>Colors: </span>
-                  {product.colors.map((color) => (
-                    <span
-                      style={{ borderColor: color }}
-                      className="color"
-                      primary={`"${color}"`}
-                      key={color}
-                    ></span>
-                  ))}
+                  {product.colors &&
+                    product.colors.length > 0 &&
+                    product.colors.map((color) => (
+                      <span
+                        style={{ borderColor: color }}
+                        className="color"
+                        primary={`"${color}"`}
+                        key={color}
+                      ></span>
+                    ))}
                 </div>
                 <div className="sizes-container">
                   <span>Sizes: </span>
-                  {product.availableSizes.map((size) => (
-                    <span key={size}>{size}</span>
-                  ))}
+                  {product.availableSizes &&
+                    product.availableSizes.length > 0 &&
+                    product.availableSizes.map((size) => (
+                      <span key={size}>{size}</span>
+                    ))}
                 </div>
                 <div className="buy-price">
                   <Link to="/" className="buy">
