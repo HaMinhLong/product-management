@@ -109,10 +109,9 @@ export class AddProduct extends Component {
                 multiple={false}
                 onDone={({ base64 }) =>
                   this.setState({
-                    ...this.state,
                     product: {
                       ...this.state.product,
-                      images: base64,
+                      images: [base64],
                     },
                   })
                 }

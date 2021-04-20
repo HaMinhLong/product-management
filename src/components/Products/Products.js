@@ -14,6 +14,7 @@ class Products extends Component {
 
     this.state = {
       products: [],
+      filterProducts: [],
     };
   }
 
@@ -22,13 +23,46 @@ class Products extends Component {
       products: this.props.items.filter(
         (product) => product.category === category
       ),
+      filterProducts: this.props.items.filter(
+        (product) => product.category === category
+      ),
+    });
+  };
+
+  filterProductsBySizes = (products, size) => {
+    const filterProducts =
+      size === ""
+        ? products
+        : products.filter(
+            (product) => product.availableSizes.indexOf(size) >= 0
+          );
+    this.setState({
+      products: filterProducts,
+    });
+  };
+
+  sortProductsByPrice = (products, sort) => {
+    sort === "latest"
+      ? products.sort((a, b) => (a.id > b.id ? 1 : -1))
+      : products.sort((a, b) =>
+          sort === "lowest"
+            ? a.price > b.price
+              ? 1
+              : -1
+            : a.price > b.price
+            ? -1
+            : 1
+        );
+    this.setState({
+      products: products,
     });
   };
 
   loadProducts = () => {
     setTimeout(() => {
       this.setState({
-        products: this.props.products,
+        products: this.props.items,
+        filterProducts: this.props.items,
       });
     }, 1);
   };
@@ -38,11 +72,16 @@ class Products extends Component {
     this.loadProducts();
   };
 
-  filterProduct = (id) => {
-    this.setState({
-      products: this.state.products.filter((product) => product.id !== id),
-    });
-  };
+  componentWillReceiveProps(nextProps) {
+    const { items } = this.props;
+    console.log(items);
+    console.log(nextProps.items);
+    if (nextProps.items !== items) {
+      this.setState({
+        products: nextProps.items,
+      });
+    }
+  }
 
   render() {
     const { products } = this.state;
@@ -53,15 +92,21 @@ class Products extends Component {
         <section className="main-container">
           <Categories filterProducts={this.filterProducts} />
           <section className="products-container">
-            <Filter products={products} />
+            <Filter
+              products={this.state.filterProducts}
+              filterProductsBySizes={this.filterProductsBySizes}
+              sortProductsByPrice={this.sortProductsByPrice}
+            />
             <div className="products">
-              {products.map((product) => (
-                <Product
-                  key={product.id}
-                  product={product}
-                  filterProduct={this.filterProduct}
-                />
-              ))}
+              {products &&
+                products.length > 0 &&
+                products.map((product) => (
+                  <Product
+                    key={product.id}
+                    product={product}
+                    filterProduct={this.filterProduct}
+                  />
+                ))}
             </div>
           </section>
         </section>
@@ -72,8 +117,7 @@ class Products extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    products: state.products.filteredItems,
-    items: state.products.items,
+    items: state.products,
   };
 };
 

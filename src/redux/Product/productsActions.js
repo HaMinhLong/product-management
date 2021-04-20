@@ -45,6 +45,7 @@ export const deleteProduct = (id) => async (dispatch) => {
       }
     }
     const products = data.products;
+    console.log("products", products);
     dispatch({
       type: actions.DELETE_PRODUCT,
       payload: products,
@@ -52,19 +53,6 @@ export const deleteProduct = (id) => async (dispatch) => {
   } catch (error) {
     console.log("Error Delete Product: " + error.message);
   }
-};
-
-export const filterProducts = (products, size) => (dispatch) => {
-  dispatch({
-    type: actions.FILTER_PRODUCTS_BY_SIZE,
-    payload: {
-      size: size,
-      items:
-        size === ""
-          ? products
-          : products.filter((x) => x.availableSizes.indexOf(size) >= 0),
-    },
-  });
 };
 
 export const sortProducts = (filteredProducts, sort) => (dispatch) => {
@@ -83,7 +71,6 @@ export const sortProducts = (filteredProducts, sort) => (dispatch) => {
     );
   }
   dispatch({
-    type: actions.ORDER_PRODUCTS_BY_PRICE,
     payload: {
       sort: sort,
       items: sortedProducts,
