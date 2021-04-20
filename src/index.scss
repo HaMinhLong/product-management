@@ -386,6 +386,10 @@ header {
                 color: #fff;
                 transform: scale(0.8);
                 margin-right: 5px;
+                transition: 0.5s;
+              }
+              i:hover {
+                transform: scale(1);
               }
             }
             .price {
@@ -396,6 +400,77 @@ header {
               p {
                 font-size: 18px;
                 font-weight: 600;
+              }
+            }
+          }
+          .delete-product {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            i {
+              color: red;
+              cursor: pointer;
+              transform: scale(0.9);
+              transition: 0.5s;
+            }
+            i:hover {
+              transform: scale(1.1);
+            }
+          }
+        }
+        .delete-box {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba($color: #000000, $alpha: 0.3);
+          .confirm-delete-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: rgba($color: #fff, $alpha: 1);
+            border-radius: 10px;
+            p {
+              font-size: 17px;
+              font-weight: bold;
+              margin-bottom: 50px;
+              letter-spacing: 1.5px;
+            }
+            .delete {
+              width: 100%;
+              display: flex;
+              justify-content: space-around;
+              button {
+                display: inline-block;
+                width: 100px;
+                height: 40px;
+                cursor: pointer;
+                // outline: none;
+                color: #fff;
+                font-weight: bold;
+                border: none;
+                &:nth-child(1) {
+                  background: rgba($color: red, $alpha: 0.7);
+                  transition: 0.5s;
+                }
+                &:nth-child(1):hover {
+                  background: rgba($color: red, $alpha: 1);
+                }
+                &:nth-child(2) {
+                  background: rgba($color: green, $alpha: 0.7);
+                  transition: 0.5s;
+                }
+                &:nth-child(2):hover {
+                  background: rgba($color: green, $alpha: 1);
+                }
               }
             }
           }
@@ -417,6 +492,7 @@ header {
   align-items: flex-start;
   .single-product {
     width: 770px;
+    position: relative;
     .product-info {
       width: 770px;
       height: 245px;
@@ -500,6 +576,7 @@ header {
             transform: scale(1);
           }
         }
+
         .price {
           display: flex;
           justify-content: center;
@@ -586,6 +663,71 @@ header {
       font-size: 15px;
       text-transform: uppercase;
       font-weight: bold;
+    }
+  }
+}
+
+// ADD PRODUCT
+.add-product {
+  position: relative;
+  top: 76px;
+  width: 100%;
+  min-height: 100vh;
+  padding-left: 174px;
+  form {
+    width: 700px;
+    padding: 50px 40px 20px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    label {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    input[type="text"] {
+      width: 70%;
+      height: 30px;
+      margin-bottom: 20px;
+      background: transparent;
+      border: none;
+      outline: none;
+      border-bottom: 1px solid #000;
+      transition: 0.5s;
+    }
+    input[type="text"]:focus {
+      width: 90%;
+      border-bottom: 1px solid #ff1944;
+    }
+    input[type="file"] {
+      margin-bottom: 20px;
+      margin-left: 10px;
+    }
+    select {
+      margin-left: 10px;
+      margin-bottom: 20px;
+    }
+    input[type="submit"] {
+      display: inline-block;
+      width: 150px;
+      height: 40px;
+      background: #000;
+      color: #fff;
+      border-bottom: none;
+      border: none;
+      text-transform: uppercase;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  }
+  .create-product-success {
+    p {
+      padding: 10px 25px;
+      display: inline-block;
+      background: green;
+      font-weight: bold;
+      color: #fff;
     }
   }
 }

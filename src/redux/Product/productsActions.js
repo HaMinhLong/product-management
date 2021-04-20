@@ -3,7 +3,7 @@ import data from "../../products.json";
 
 export const fetchProducts = () => async (dispatch) => {
   try {
-    const products = await data.products;
+    const products = data.products;
     dispatch({
       type: actions.FETCH_PRODUCTS,
       payload: products,
@@ -15,7 +15,7 @@ export const fetchProducts = () => async (dispatch) => {
 
 export const fetchProduct = (id) => async (dispatch) => {
   try {
-    const product = await data.products.filter((product) => product.id === id);
+    const product = data.products.filter((product) => product.id === id);
     dispatch({
       type: actions.FETCH_PRODUCT,
       payload: product,
@@ -27,6 +27,7 @@ export const fetchProduct = (id) => async (dispatch) => {
 
 export const createProduct = (product) => async (dispatch) => {
   try {
+    data.products.unshift(product);
     dispatch({
       type: actions.CREATE_PRODUCT,
       payload: product,
@@ -38,9 +39,15 @@ export const createProduct = (product) => async (dispatch) => {
 
 export const deleteProduct = (id) => async (dispatch) => {
   try {
+    for (var i = 0; i < data.products.length; i++) {
+      if (data.products[i].id === id) {
+        data.products.splice(i, 1);
+      }
+    }
+    const products = data.products;
     dispatch({
       type: actions.DELETE_PRODUCT,
-      payload: id,
+      payload: products,
     });
   } catch (error) {
     console.log("Error Delete Product: " + error.message);
@@ -75,7 +82,6 @@ export const sortProducts = (filteredProducts, sort) => (dispatch) => {
         : 1
     );
   }
-  console.log(sortedProducts);
   dispatch({
     type: actions.ORDER_PRODUCTS_BY_PRICE,
     payload: {
