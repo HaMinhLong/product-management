@@ -10,9 +10,15 @@ const productsReducer = (state = [], action) => {
     case actions.FETCH_PRODUCT:
       return action.payload;
     case actions.CREATE_PRODUCT:
-      return [...state, action.payload];
+      return {
+        ...state,
+        items: [...state.items, action.payload],
+      };
     case actions.DELETE_PRODUCT:
-      return state.filter((product) => product.id !== action.payload);
+      return {
+        ...state,
+        items: action.payload,
+      };
     case actions.FILTER_PRODUCTS_BY_SIZE:
       return {
         ...state,

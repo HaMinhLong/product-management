@@ -28,7 +28,7 @@ class Products extends Component {
   loadProducts = () => {
     setTimeout(() => {
       this.setState({
-        products: this.props.items,
+        products: this.props.products,
       });
     }, 1);
   };
@@ -36,6 +36,12 @@ class Products extends Component {
   componentDidMount = () => {
     this.props.fetchProducts();
     this.loadProducts();
+  };
+
+  filterProduct = (id) => {
+    this.setState({
+      products: this.state.products.filter((product) => product.id !== id),
+    });
   };
 
   render() {
@@ -50,7 +56,11 @@ class Products extends Component {
             <Filter products={products} />
             <div className="products">
               {products.map((product) => (
-                <Product key={product.id} product={product} />
+                <Product
+                  key={product.id}
+                  product={product}
+                  filterProduct={this.filterProduct}
+                />
               ))}
             </div>
           </section>

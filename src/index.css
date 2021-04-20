@@ -378,6 +378,10 @@ header .links ul li a {
   color: #fff;
   transform: scale(0.8);
   margin-right: 5px;
+  transition: 0.5s;
+}
+.main-container .products-container .products .product-container .product-details .buy-price a i:hover {
+  transform: scale(1);
 }
 .main-container .products-container .products .product-container .product-details .buy-price .price {
   display: flex;
@@ -388,6 +392,76 @@ header .links ul li a {
 .main-container .products-container .products .product-container .product-details .buy-price .price p {
   font-size: 18px;
   font-weight: 600;
+}
+.main-container .products-container .products .product-container .product-details .delete-product {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+.main-container .products-container .products .product-container .product-details .delete-product i {
+  color: red;
+  cursor: pointer;
+  transform: scale(0.9);
+  transition: 0.5s;
+}
+.main-container .products-container .products .product-container .product-details .delete-product i:hover {
+  transform: scale(1.1);
+}
+.main-container .products-container .products .product-container .delete-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+}
+.main-container .products-container .products .product-container .delete-box .confirm-delete-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  border-radius: 10px;
+}
+.main-container .products-container .products .product-container .delete-box .confirm-delete-box p {
+  font-size: 17px;
+  font-weight: bold;
+  margin-bottom: 50px;
+  letter-spacing: 1.5px;
+}
+.main-container .products-container .products .product-container .delete-box .confirm-delete-box .delete {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.main-container .products-container .products .product-container .delete-box .confirm-delete-box .delete button {
+  display: inline-block;
+  width: 100px;
+  height: 40px;
+  cursor: pointer;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+}
+.main-container .products-container .products .product-container .delete-box .confirm-delete-box .delete button:nth-child(1) {
+  background: rgba(255, 0, 0, 0.7);
+  transition: 0.5s;
+}
+.main-container .products-container .products .product-container .delete-box .confirm-delete-box .delete button:nth-child(1):hover {
+  background: red;
+}
+.main-container .products-container .products .product-container .delete-box .confirm-delete-box .delete button:nth-child(2) {
+  background: rgba(0, 128, 0, 0.7);
+  transition: 0.5s;
+}
+.main-container .products-container .products .product-container .delete-box .confirm-delete-box .delete button:nth-child(2):hover {
+  background: green;
 }
 
 .single-product-container {
@@ -402,6 +476,7 @@ header .links ul li a {
 }
 .single-product-container .single-product {
   width: 770px;
+  position: relative;
 }
 .single-product-container .single-product .product-info {
   width: 770px;
@@ -569,6 +644,68 @@ header .links ul li a {
   font-size: 15px;
   text-transform: uppercase;
   font-weight: bold;
+}
+
+.add-product {
+  position: relative;
+  top: 76px;
+  width: 100%;
+  min-height: 100vh;
+  padding-left: 174px;
+}
+.add-product form {
+  width: 700px;
+  padding: 50px 40px 20px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.add-product form label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.add-product form input[type=text] {
+  width: 70%;
+  height: 30px;
+  margin-bottom: 20px;
+  background: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #000;
+  transition: 0.5s;
+}
+.add-product form input[type=text]:focus {
+  width: 90%;
+  border-bottom: 1px solid #ff1944;
+}
+.add-product form input[type=file] {
+  margin-bottom: 20px;
+  margin-left: 10px;
+}
+.add-product form select {
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+.add-product form input[type=submit] {
+  display: inline-block;
+  width: 150px;
+  height: 40px;
+  background: #000;
+  color: #fff;
+  border-bottom: none;
+  border: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+}
+.add-product .create-product-success p {
+  padding: 10px 25px;
+  display: inline-block;
+  background: green;
+  font-weight: bold;
+  color: #fff;
 }
 
 /*# sourceMappingURL=index.css.map */

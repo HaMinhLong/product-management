@@ -9,6 +9,7 @@ class Navbar extends Component {
         <div className="logo">
           <Link to="/">Logo</Link>
         </div>
+        <div className="toggle"></div>
         <div className="links">
           <ul>
             <li>

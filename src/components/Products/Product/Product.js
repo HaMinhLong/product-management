@@ -1,14 +1,32 @@
 import React, { Component } from "react";
 
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { deleteProduct } from "../../../redux/Product/productsActions";
 class Product extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      confirmDeleteBox: false,
+    };
+  }
+
+  deleteProduct = () => {
+    this.props.deleteProduct(this.props.product.id);
+    this.props.filterProduct(this.props.product.id);
+    this.setState({
+      confirmDeleteBox: false,
+    });
+  };
+
   render() {
     const { product } = this.props;
     return (
       <section className="product-container">
         <div className="img-box">
           <Link to={`./products/${product.id}`}>
-            <img src={`${product.images[0]}`} alt="" />
+            <img src={product.images[0]} alt="" />
           </Link>
         </div>
         <div className="product-details">
@@ -39,15 +57,51 @@ class Product extends Component {
               <i className="fas fa-shopping-cart"></i>
               Add To Cart
             </Link>
+
             <div className="price">
               <i className="fas fa-dollar-sign"></i>
               <p>{product.price}</p>
             </div>
           </div>
+
+          <div className="delete-product">
+            <i
+              className="fas fa-trash"
+              onClick={() =>
+                this.setState({
+                  confirmDeleteBox: this.state.confirmDeleteBox ? false : true,
+                })
+              }
+            ></i>
+          </div>
         </div>
+        {this.state.confirmDeleteBox && (
+          <div className="delete-box">
+            <div className="confirm-delete-box">
+              <p>Bạn có muốn xóa sản phẩm này không?</p>
+              <div className="delete">
+                <button onClick={() => this.deleteProduct()}>Delete</button>
+
+                <button
+                  onClick={() => this.setState({ confirmDeleteBox: false })}
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </section>
     );
   }
 }
 
-export default Product;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    deleteProduct: (id) => {
+      dispatch(deleteProduct(id));
+    },
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Product);
