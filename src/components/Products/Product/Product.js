@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-import { deleteProduct } from "../../../redux/Product/productsActions";
 class Product extends Component {
   constructor(props) {
     super(props);
@@ -101,12 +99,4 @@ class Product extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    deleteProduct: (id) => {
-      dispatch(deleteProduct(id));
-    },
-  };
-};
-
-export default connect(null, mapDispatchToProps)(Product);
+export default Product;

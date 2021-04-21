@@ -16,15 +16,15 @@ class SingleProduct extends Component {
     };
   }
 
-  autoChangeImage = () => {
-    let index = 1;
-    setInterval(() => {
-      this.setState({
-        image: this.props.product[0].images[index],
-      });
-      index > this.props.product[0].images.length - 2 ? (index = 0) : index++;
-    }, 4000);
-  };
+  // autoChangeImage = () => {
+  //   let index = 1;
+  //   setInterval(() => {
+  //     this.setState({
+  //       image: this.props.product[0].images[index],
+  //     });
+  //     index > this.props.product[0].images.length - 2 ? (index = 0) : index++;
+  //   }, 4000);
+  // };
 
   setImage = () => {
     setTimeout(() => {
@@ -43,13 +43,13 @@ class SingleProduct extends Component {
   componentDidMount = () => {
     const id = this.props.match.params.id;
     this.props.fetchProduct(id);
-    this.autoChangeImage();
+    // this.autoChangeImage();
     this.setImage();
   };
 
-  componentWillUnmount() {
-    clearInterval();
-  }
+  // componentWillUnmount() {
+  //   clearInterval();
+  // }
 
   render() {
     const product = this.props.product[0];
@@ -100,14 +100,16 @@ class SingleProduct extends Component {
               <div className="img-box">
                 <div>
                   <div className="lens"></div>
-                  <img src={`${this.state.image}`} alt="" />
+                  <img src={this.state.image} alt="" />
                 </div>
                 <div className="img-slider">
-                  {product.images.map((image) => (
-                    <div onClick={() => this.changeImage(image)} key={image}>
-                      <img id="featured" src={`${image}`} alt="" />
-                    </div>
-                  ))}
+                  {product.images &&
+                    product.images.length > 0 &&
+                    product.images.map((image) => (
+                      <div onClick={() => this.changeImage(image)} key={image}>
+                        <img id="featured" src={image} alt="" />
+                      </div>
+                    ))}
                 </div>
               </div>
               <div className="product-describe">
