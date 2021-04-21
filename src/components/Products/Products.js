@@ -106,6 +106,7 @@ class Products extends Component {
           <section className="products-container">
             <Filter
               products={this.state.filterProducts}
+              listProducts={this.state.products}
               productsLength={this.state.products.length}
               filterProductsBySizes={this.filterProductsBySizes}
               sortProductsByPrice={this.sortProductsByPrice}

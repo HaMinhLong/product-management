@@ -709,7 +709,17 @@ header {
     }
     select {
       margin-left: 10px;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
+      color: #fff;
+      font-weight: bold;
+      background: #000;
+
+      option {
+        font-weight: bold;
+      }
+    }
+    select[name="colors"] {
+      color: transparent;
     }
     input[type="submit"] {
       display: inline-block;
@@ -731,6 +741,161 @@ header {
       background: green;
       font-weight: bold;
       color: #fff;
+    }
+  }
+}
+
+// LOGIN PAGE
+.login-page,
+.sign-up-page,
+.forgot-password-page {
+  width: 100%;
+  min-height: 100vh;
+  background: rgba($color: #000, $alpha: 0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .login-form,
+  .sign-up-form,
+  .forgot-password-form {
+    width: 450px;
+    height: 700px;
+    box-shadow: 5px 10px 10px rgba($color: #000000, $alpha: 0.2);
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 80px 30px 0px;
+    border: 1px solid rgba($color: #000000, $alpha: 0.1);
+    .image-box {
+      margin: 0 auto;
+      width: 100px;
+      height: 100px;
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+      }
+    }
+    h1 {
+      width: 100%;
+      text-transform: uppercase;
+      font-size: 20px;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    p {
+      width: 100%;
+      text-align: center;
+      color: rgba($color: #000000, $alpha: 0.7);
+    }
+    form {
+      width: 100%;
+      margin-top: 30px;
+      div {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 100%;
+        margin-bottom: 10px;
+        label {
+          position: relative;
+          font-size: 16px;
+          font-weight: bold;
+          i {
+            margin-right: 10px;
+          }
+        }
+        input {
+          border: none;
+          outline: none;
+          border-bottom: 1px solid #000;
+          width: 100%;
+          height: 40px;
+          // font-weight: bold;
+          font-size: 16px;
+          background: transparent;
+          // transition: 0.5s;
+          margin-bottom: 10px;
+        }
+        input:focus {
+          border-bottom: 2px solid #000;
+        }
+      }
+      p {
+        a {
+          display: block;
+          text-decoration: none;
+          text-align: right;
+          color: rgba($color: #000000, $alpha: 0.7);
+        }
+      }
+      input[type="submit"] {
+        width: 100%;
+        background: #000;
+        color: #fff;
+        font-weight: bold;
+        font-size: 16px;
+        text-transform: uppercase;
+        padding: 10px;
+        margin: 20px 0px 30px;
+        cursor: pointer;
+      }
+      a {
+        display: block;
+        text-decoration: none;
+        text-align: center;
+        text-transform: uppercase;
+        color: rgba($color: #000000, $alpha: 0.7);
+        margin-top: 10px;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+// SIGN UP PAGE
+.sign-up-page {
+  .sign-up-form {
+    height: 800px;
+    padding: 30px 30px 0px;
+  }
+}
+.forgot-password-page {
+  .forgot-password-form {
+    height: 600px;
+  }
+}
+// 404 PAGE
+.page-not-found {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    font-size: 100px;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 30px;
+  }
+  p {
+    font-size: 20px;
+    border-top: 1px solid #666;
+    padding-top: 40px;
+    span {
+      cursor: pointer;
+      display: inline-block;
+      background: #666;
+      padding: 10px 30px;
+      margin-left: 10px;
+      color: #fff;
+      font-weight: bold;
     }
   }
 }

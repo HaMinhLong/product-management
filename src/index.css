@@ -689,7 +689,16 @@ header .links ul li a {
 }
 .add-product form select {
   margin-left: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  color: #fff;
+  font-weight: bold;
+  background: #000;
+}
+.add-product form select option {
+  font-weight: bold;
+}
+.add-product form select[name=colors] {
+  color: transparent;
 }
 .add-product form input[type=submit] {
   display: inline-block;
@@ -709,6 +718,262 @@ header .links ul li a {
   background: green;
   font-weight: bold;
   color: #fff;
+}
+
+.login-page,
+.sign-up-page,
+.forgot-password-page {
+  width: 100%;
+  min-height: 100vh;
+  background: rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-page .login-form,
+.login-page .sign-up-form,
+.login-page .forgot-password-form,
+.sign-up-page .login-form,
+.sign-up-page .sign-up-form,
+.sign-up-page .forgot-password-form,
+.forgot-password-page .login-form,
+.forgot-password-page .sign-up-form,
+.forgot-password-page .forgot-password-form {
+  width: 450px;
+  height: 700px;
+  box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 80px 30px 0px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.login-page .login-form .image-box,
+.login-page .sign-up-form .image-box,
+.login-page .forgot-password-form .image-box,
+.sign-up-page .login-form .image-box,
+.sign-up-page .sign-up-form .image-box,
+.sign-up-page .forgot-password-form .image-box,
+.forgot-password-page .login-form .image-box,
+.forgot-password-page .sign-up-form .image-box,
+.forgot-password-page .forgot-password-form .image-box {
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+}
+.login-page .login-form .image-box img,
+.login-page .sign-up-form .image-box img,
+.login-page .forgot-password-form .image-box img,
+.sign-up-page .login-form .image-box img,
+.sign-up-page .sign-up-form .image-box img,
+.sign-up-page .forgot-password-form .image-box img,
+.forgot-password-page .login-form .image-box img,
+.forgot-password-page .sign-up-form .image-box img,
+.forgot-password-page .forgot-password-form .image-box img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.login-page .login-form h1,
+.login-page .sign-up-form h1,
+.login-page .forgot-password-form h1,
+.sign-up-page .login-form h1,
+.sign-up-page .sign-up-form h1,
+.sign-up-page .forgot-password-form h1,
+.forgot-password-page .login-form h1,
+.forgot-password-page .sign-up-form h1,
+.forgot-password-page .forgot-password-form h1 {
+  width: 100%;
+  text-transform: uppercase;
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.login-page .login-form p,
+.login-page .sign-up-form p,
+.login-page .forgot-password-form p,
+.sign-up-page .login-form p,
+.sign-up-page .sign-up-form p,
+.sign-up-page .forgot-password-form p,
+.forgot-password-page .login-form p,
+.forgot-password-page .sign-up-form p,
+.forgot-password-page .forgot-password-form p {
+  width: 100%;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.7);
+}
+.login-page .login-form form,
+.login-page .sign-up-form form,
+.login-page .forgot-password-form form,
+.sign-up-page .login-form form,
+.sign-up-page .sign-up-form form,
+.sign-up-page .forgot-password-form form,
+.forgot-password-page .login-form form,
+.forgot-password-page .sign-up-form form,
+.forgot-password-page .forgot-password-form form {
+  width: 100%;
+  margin-top: 30px;
+}
+.login-page .login-form form div,
+.login-page .sign-up-form form div,
+.login-page .forgot-password-form form div,
+.sign-up-page .login-form form div,
+.sign-up-page .sign-up-form form div,
+.sign-up-page .forgot-password-form form div,
+.forgot-password-page .login-form form div,
+.forgot-password-page .sign-up-form form div,
+.forgot-password-page .forgot-password-form form div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.login-page .login-form form div label,
+.login-page .sign-up-form form div label,
+.login-page .forgot-password-form form div label,
+.sign-up-page .login-form form div label,
+.sign-up-page .sign-up-form form div label,
+.sign-up-page .forgot-password-form form div label,
+.forgot-password-page .login-form form div label,
+.forgot-password-page .sign-up-form form div label,
+.forgot-password-page .forgot-password-form form div label {
+  position: relative;
+  font-size: 16px;
+  font-weight: bold;
+}
+.login-page .login-form form div label i,
+.login-page .sign-up-form form div label i,
+.login-page .forgot-password-form form div label i,
+.sign-up-page .login-form form div label i,
+.sign-up-page .sign-up-form form div label i,
+.sign-up-page .forgot-password-form form div label i,
+.forgot-password-page .login-form form div label i,
+.forgot-password-page .sign-up-form form div label i,
+.forgot-password-page .forgot-password-form form div label i {
+  margin-right: 10px;
+}
+.login-page .login-form form div input,
+.login-page .sign-up-form form div input,
+.login-page .forgot-password-form form div input,
+.sign-up-page .login-form form div input,
+.sign-up-page .sign-up-form form div input,
+.sign-up-page .forgot-password-form form div input,
+.forgot-password-page .login-form form div input,
+.forgot-password-page .sign-up-form form div input,
+.forgot-password-page .forgot-password-form form div input {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #000;
+  width: 100%;
+  height: 40px;
+  font-size: 16px;
+  background: transparent;
+  margin-bottom: 10px;
+}
+.login-page .login-form form div input:focus,
+.login-page .sign-up-form form div input:focus,
+.login-page .forgot-password-form form div input:focus,
+.sign-up-page .login-form form div input:focus,
+.sign-up-page .sign-up-form form div input:focus,
+.sign-up-page .forgot-password-form form div input:focus,
+.forgot-password-page .login-form form div input:focus,
+.forgot-password-page .sign-up-form form div input:focus,
+.forgot-password-page .forgot-password-form form div input:focus {
+  border-bottom: 2px solid #000;
+}
+.login-page .login-form form p a,
+.login-page .sign-up-form form p a,
+.login-page .forgot-password-form form p a,
+.sign-up-page .login-form form p a,
+.sign-up-page .sign-up-form form p a,
+.sign-up-page .forgot-password-form form p a,
+.forgot-password-page .login-form form p a,
+.forgot-password-page .sign-up-form form p a,
+.forgot-password-page .forgot-password-form form p a {
+  display: block;
+  text-decoration: none;
+  text-align: right;
+  color: rgba(0, 0, 0, 0.7);
+}
+.login-page .login-form form input[type=submit],
+.login-page .sign-up-form form input[type=submit],
+.login-page .forgot-password-form form input[type=submit],
+.sign-up-page .login-form form input[type=submit],
+.sign-up-page .sign-up-form form input[type=submit],
+.sign-up-page .forgot-password-form form input[type=submit],
+.forgot-password-page .login-form form input[type=submit],
+.forgot-password-page .sign-up-form form input[type=submit],
+.forgot-password-page .forgot-password-form form input[type=submit] {
+  width: 100%;
+  background: #000;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  text-transform: uppercase;
+  padding: 10px;
+  margin: 20px 0px 30px;
+  cursor: pointer;
+}
+.login-page .login-form form a,
+.login-page .sign-up-form form a,
+.login-page .forgot-password-form form a,
+.sign-up-page .login-form form a,
+.sign-up-page .sign-up-form form a,
+.sign-up-page .forgot-password-form form a,
+.forgot-password-page .login-form form a,
+.forgot-password-page .sign-up-form form a,
+.forgot-password-page .forgot-password-form form a {
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.7);
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.sign-up-page .sign-up-form {
+  height: 800px;
+  padding: 30px 30px 0px;
+}
+
+.forgot-password-page .forgot-password-form {
+  height: 600px;
+}
+
+.page-not-found {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.page-not-found h1 {
+  font-size: 100px;
+  text-transform: uppercase;
+  color: #666;
+  margin-bottom: 30px;
+}
+.page-not-found p {
+  font-size: 20px;
+  border-top: 1px solid #666;
+  padding-top: 40px;
+}
+.page-not-found p span {
+  cursor: pointer;
+  display: inline-block;
+  background: #666;
+  padding: 10px 30px;
+  margin-left: 10px;
+  color: #fff;
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=index.css.map */
