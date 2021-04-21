@@ -425,6 +425,7 @@ header {
           width: 100%;
           height: 100%;
           background: rgba($color: #000000, $alpha: 0.3);
+          z-index: 100;
           .confirm-delete-box {
             position: fixed;
             top: 50%;
@@ -686,7 +687,8 @@ header {
       font-weight: bold;
       margin-bottom: 5px;
     }
-    input[type="text"] {
+    input[type="text"],
+    input[type="number"] {
       width: 70%;
       height: 30px;
       margin-bottom: 20px;
@@ -696,7 +698,8 @@ header {
       border-bottom: 1px solid #000;
       transition: 0.5s;
     }
-    input[type="text"]:focus {
+    input[type="text"]:focus,
+    input[type="number"]:focus {
       width: 90%;
       border-bottom: 1px solid #ff1944;
     }

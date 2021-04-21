@@ -10,3 +10,10 @@ export const createUser = (user) => async (dispatch) => {
     console.log("Error Create User: " + error.message);
   }
 };
+
+export const Login = (username, password) => async (dispatch) => {
+  try {
+  } catch (error) {
+    console.log("Error Login: " + error.message);
+  }
+};

@@ -6,7 +6,10 @@ import Categories from "./Categories";
 import Banner from "../Layout/Banner";
 import { connect } from "react-redux";
 // import * as actions from "../../redux/Product/productsTypes";
-import { fetchProducts } from "../../redux/Product/productsActions";
+import {
+  fetchProducts,
+  deleteProduct,
+} from "../../redux/Product/productsActions";
 
 class Products extends Component {
   constructor(props) {
@@ -72,16 +75,25 @@ class Products extends Component {
     this.loadProducts();
   };
 
-  componentWillReceiveProps(nextProps) {
-    const { items } = this.props;
-    console.log(items);
-    console.log(nextProps.items);
-    if (nextProps.items !== items) {
+  // UNSAFE_componentWillReceiveProps(nextProps) {
+  //   const { items } = this.props;
+  //   console.log("nextProps: ", nextProps.items);
+  //   console.log("Items: ", items);
+  //   if (nextProps.items !== items) {
+  //     this.setState({
+  //       products: nextProps.items,
+  //     });
+  //   }
+  // }
+
+  deleteProduct = (id) => {
+    this.props.deleteProduct(id);
+    setTimeout(() => {
       this.setState({
-        products: nextProps.items,
+        products: this.state.products.filter((product) => product.id !== id),
       });
-    }
-  }
+    }, 1);
+  };
 
   render() {
     const { products } = this.state;
@@ -94,6 +106,7 @@ class Products extends Component {
           <section className="products-container">
             <Filter
               products={this.state.filterProducts}
+              productsLength={this.state.products.length}
               filterProductsBySizes={this.filterProductsBySizes}
               sortProductsByPrice={this.sortProductsByPrice}
             />
@@ -104,7 +117,7 @@ class Products extends Component {
                   <Product
                     key={product.id}
                     product={product}
-                    filterProduct={this.filterProduct}
+                    deleteProduct={this.deleteProduct}
                   />
                 ))}
             </div>
@@ -125,6 +138,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchProducts: () => {
       dispatch(fetchProducts());
+    },
+    deleteProduct: (id) => {
+      dispatch(deleteProduct(id));
     },
   };
 };

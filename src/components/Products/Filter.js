@@ -24,12 +24,12 @@ export class Filter extends Component {
     });
   };
   render() {
-    const { products } = this.props;
+    const { productsLength } = this.props;
     return (
       <div className="filter">
         <div className="filter-result">
           <p>
-            Hiển thị: <span>{products.length}</span> sản phẩm
+            Hiển thị: <span>{productsLength}</span> sản phẩm
           </p>
         </div>
         <div className="filter-products">

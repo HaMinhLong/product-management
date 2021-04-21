@@ -45,7 +45,6 @@ export const deleteProduct = (id) => async (dispatch) => {
       }
     }
     const products = data.products;
-    console.log("products", products);
     dispatch({
       type: actions.DELETE_PRODUCT,
       payload: products,
@@ -53,27 +52,4 @@ export const deleteProduct = (id) => async (dispatch) => {
   } catch (error) {
     console.log("Error Delete Product: " + error.message);
   }
-};
-
-export const sortProducts = (filteredProducts, sort) => (dispatch) => {
-  const sortedProducts = filteredProducts.slice();
-  if (sort === "latest") {
-    sortedProducts.sort((a, b) => (a.id > b.id ? 1 : -1));
-  } else {
-    sortedProducts.sort((a, b) =>
-      sort === "lowest"
-        ? a.price > b.price
-          ? 1
-          : -1
-        : a.price > b.price
-        ? -1
-        : 1
-    );
-  }
-  dispatch({
-    payload: {
-      sort: sort,
-      items: sortedProducts,
-    },
-  });
 };

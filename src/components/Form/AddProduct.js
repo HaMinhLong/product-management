@@ -9,7 +9,7 @@ export class AddProduct extends Component {
 
     this.state = {
       product: {
-        id: Math.random(),
+        id: Math.floor(Math.random() * 1000000000000000000).toString(),
         name: "",
         price: "",
         images: [],
@@ -24,11 +24,13 @@ export class AddProduct extends Component {
 
   addProduct = (e) => {
     e.preventDefault();
+    console.log(this.state.product);
     this.props.createProduct(this.state.product);
     this.clear();
     this.setState({
       createProductSuccess: true,
     });
+    this.props.history.push("/");
   };
 
   clear = () => {
@@ -45,23 +47,13 @@ export class AddProduct extends Component {
   };
 
   handleChange = (e) => {
-    if (e.target.name === "colors" || e.target.name === "availableSizes") {
-      this.setState({
-        ...this.state,
-        product: {
-          ...this.state.product,
-          [e.target.name]: e.target.value.split(","),
-        },
-      });
-    } else {
-      this.setState({
-        ...this.state,
-        product: {
-          ...this.state.product,
-          [e.target.name]: e.target.value,
-        },
-      });
-    }
+    this.setState({
+      ...this.state,
+      product: {
+        ...this.state.product,
+        [e.target.name]: e.target.value,
+      },
+    });
   };
 
   render() {
@@ -80,9 +72,19 @@ export class AddProduct extends Component {
                 this.handleChange(e);
               }}
             />
-            <label htmlFor="price">Price: </label>
+            <label htmlFor="describe">Describe: </label>
             <input
               type="text"
+              name="describe"
+              id="describe"
+              required
+              onChange={(e) => {
+                this.handleChange(e);
+              }}
+            />
+            <label htmlFor="price">Price: </label>
+            <input
+              type="number"
               name="price"
               id="price"
               required
@@ -90,22 +92,10 @@ export class AddProduct extends Component {
                 this.handleChange(e);
               }}
             />
-            {/* <div>
-              <label htmlFor="images">Images: </label>
-              <input
-                type="file"
-                multiple={false}
-                name="images"
-                id="images"
-                required
-                onChange={(e) => {
-                  this.handleChange(e);
-                }}
-              />
-            </div> */}
             <div>
               <FileBase
                 type="file"
+                required
                 multiple={false}
                 onDone={({ base64 }) =>
                   this.setState({
@@ -117,36 +107,75 @@ export class AddProduct extends Component {
                 }
               />
             </div>
-            <label htmlFor="colors">Colors: </label>
-            <input
-              type="text"
-              name="colors"
-              id="colors"
-              required
-              onChange={(e) => {
-                this.handleChange(e);
-              }}
-            />
-            <label htmlFor="availableSizes">Available Sizes: </label>
-            <input
-              type="text"
-              name="availableSizes"
-              id="sizes"
-              required
-              onChange={(e) => {
-                this.handleChange(e);
-              }}
-            />
-            <label htmlFor="describe">Describe: </label>
-            <input
-              type="text"
-              name="describe"
-              id="describe"
-              required
-              onChange={(e) => {
-                this.handleChange(e);
-              }}
-            />
+            <div>
+              <label htmlFor="colors">Colors: </label>
+              <select
+                id="colors"
+                name="colors"
+                required
+                value={
+                  this.state.product.colors[
+                    this.state.product.colors.length - 1
+                  ]
+                }
+                onChange={(e) => {
+                  this.setState({
+                    ...this.state,
+                    product: {
+                      ...this.state.product,
+                      [e.target.name]: [
+                        ...this.state.product.colors,
+                        e.target.value,
+                      ],
+                    },
+                  });
+                }}
+              >
+                <option value="black">black</option>
+                <option value="blue">blue</option>
+                <option value="green">green</option>
+                <option value="yellow">yellow</option>
+                <option value="orange">orange</option>
+                <option value="pink">pink</option>
+                <option value="red">red</option>
+                <option value="gray">gray</option>
+                <option value="brown">brown</option>
+                <option value="purple">purple</option>
+              </select>
+            </div>
+            <div>
+              <label htmlFor="availableSizes">Available Sizes: </label>
+              <select
+                required
+                id="availableSizes"
+                name="availableSizes"
+                value={
+                  this.state.product.availableSizes[
+                    this.state.product.availableSizes.length - 1
+                  ]
+                }
+                onChange={(e) => {
+                  this.setState({
+                    ...this.state,
+                    product: {
+                      ...this.state.product,
+                      [e.target.name]: [
+                        ...this.state.product.availableSizes,
+                        e.target.value,
+                      ],
+                    },
+                  });
+                }}
+              >
+                <option value="XS">XS</option>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+                <option value="XXL">XXL</option>
+              </select>
+            </div>
+
             <div>
               <label htmlFor="category">Category: </label>
               <select
