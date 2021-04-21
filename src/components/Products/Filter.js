@@ -11,7 +11,7 @@ export class Filter extends Component {
   }
 
   sortProducts = (e) => {
-    this.props.sortProductsByPrice(this.props.products, e.target.value);
+    this.props.sortProductsByPrice(this.props.listProducts, e.target.value);
     this.setState({
       sort: e.target.value,
     });

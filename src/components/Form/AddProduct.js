@@ -18,6 +18,18 @@ export class AddProduct extends Component {
         describe: "",
         category: "shirt",
       },
+      availableColors: [
+        "black",
+        "blue",
+        "green",
+        "yellow",
+        "orange",
+        "pink",
+        "red",
+        "gray",
+        "brown",
+        "purple",
+      ],
       createProductSuccess: false,
     };
   }
@@ -64,6 +76,7 @@ export class AddProduct extends Component {
           <form onSubmit={(e) => this.addProduct(e)}>
             <label htmlFor="name">Name: </label>
             <input
+              autoFocus
               type="text"
               name="name"
               id="name"
@@ -110,6 +123,11 @@ export class AddProduct extends Component {
             <div>
               <label htmlFor="colors">Colors: </label>
               <select
+                style={{
+                  background: this.state.product.colors[
+                    this.state.product.colors.length - 1
+                  ],
+                }}
                 id="colors"
                 name="colors"
                 required
@@ -131,16 +149,15 @@ export class AddProduct extends Component {
                   });
                 }}
               >
-                <option value="black">black</option>
-                <option value="blue">blue</option>
-                <option value="green">green</option>
-                <option value="yellow">yellow</option>
-                <option value="orange">orange</option>
-                <option value="pink">pink</option>
-                <option value="red">red</option>
-                <option value="gray">gray</option>
-                <option value="brown">brown</option>
-                <option value="purple">purple</option>
+                {this.state.availableColors.map((color) => (
+                  <option
+                    key={color}
+                    style={{ background: color }}
+                    value={color}
+                  >
+                    {color}
+                  </option>
+                ))}
               </select>
             </div>
             <div>
