@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-
 import { Link } from "react-router-dom";
 
+import { connect } from "react-redux";
+
+import { changePassword } from "../../redux/User/usersActions";
 class ForgotPassword extends Component {
   constructor(props) {
     super(props);
@@ -12,6 +14,7 @@ class ForgotPassword extends Component {
         password: "",
         confirmPassword: "",
       },
+      error: "",
     };
   }
 
@@ -27,11 +30,34 @@ class ForgotPassword extends Component {
 
   changePassword = (e) => {
     e.preventDefault();
-    console.log(this.state.user);
+    this.props.changePassword(
+      this.state.user.phoneNumber,
+      this.state.user.password
+    );
+  };
+
+  UNSAFE_componentWillReceiveProps = (nextProps) => {
+    const { message } = this.props;
+    console.log(nextProps.message);
+    if (nextProps.message !== message) {
+      if (nextProps.message) {
+        this.setState({
+          error: [nextProps.message],
+        });
+      } else {
+        if (this.state.user.password !== this.state.user.confirmPassword) {
+          this.setState({
+            error: ["Password not match"],
+          });
+        } else {
+          this.props.history.push("/");
+        }
+      }
+    }
   };
 
   render() {
-    const { username, password, confirmPassword } = this.state;
+    const { phoneNumber, password, confirmPassword } = this.state;
     return (
       <section className="forgot-password-page">
         <div className="forgot-password-form">
@@ -44,7 +70,7 @@ class ForgotPassword extends Component {
                 name="phoneNumber"
                 id="phoneNumber"
                 required
-                value={username}
+                value={phoneNumber}
                 onChange={(e) => this.handleChange(e)}
               />
             </div>
@@ -74,6 +100,17 @@ class ForgotPassword extends Component {
                 onChange={(e) => this.handleChange(e)}
               />
             </div>
+            <div className="error-messages">
+              <ul>
+                {this.state.error &&
+                  this.state.error.length > 0 &&
+                  this.state.error.map((e) => (
+                    <li key={e}>
+                      <p>{e}</p>
+                    </li>
+                  ))}
+              </ul>
+            </div>
             <input type="submit" value="Change Password" />
             <Link to="/">Cancel</Link>
           </form>
@@ -83,4 +120,18 @@ class ForgotPassword extends Component {
   }
 }
 
-export default ForgotPassword;
+const mapStateToProps = ({ users }) => {
+  return {
+    message: users,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    changePassword: (phoneNumber, password) => {
+      dispatch(changePassword(phoneNumber, password));
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ForgotPassword);

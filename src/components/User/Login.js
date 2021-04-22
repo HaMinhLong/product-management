@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 
 import { Link } from "react-router-dom";
-
+import { connect } from "react-redux";
+import { LoginUser } from "../../redux/User/usersActions.js";
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -11,6 +12,7 @@ class Login extends Component {
         username: "",
         password: "",
       },
+      messages: [],
     };
   }
 
@@ -24,9 +26,24 @@ class Login extends Component {
     });
   };
 
-  Login = (e) => {
+  LoginUser = (e) => {
     e.preventDefault();
-    console.log(this.state.user);
+    this.props.LoginUser(this.state.user.username, this.state.user.password);
+  };
+
+  UNSAFE_componentWillReceiveProps = (nextProps) => {
+    const { messages } = this.props;
+    console.log(nextProps.messages);
+    if (nextProps.messages !== messages) {
+      if (nextProps.messages) {
+        this.setState({
+          messages: [nextProps.messages],
+        });
+      } else {
+        localStorage.setItem("status", "Login Success");
+        window.location = "/";
+      }
+    }
   };
 
   render() {
@@ -41,7 +58,7 @@ class Login extends Component {
           </div>
           <h1>Welcome</h1>
           <p>Sign in by entering the information below</p>
-          <form onSubmit={(e) => this.Login(e)}>
+          <form onSubmit={(e) => this.LoginUser(e)}>
             <div>
               <label htmlFor="username">
                 <i className="fa fa-user" aria-hidden="true"></i>Username:{" "}
@@ -71,6 +88,17 @@ class Login extends Component {
             <p>
               <Link to="/forgot-password">Forgot password?</Link>
             </p>
+            <div className="error-messages">
+              <ul>
+                {this.state.messages &&
+                  this.state.messages.length > 0 &&
+                  this.state.messages.map((error) => (
+                    <li key={error}>
+                      <p>{error}</p>
+                    </li>
+                  ))}
+              </ul>
+            </div>
             <input type="submit" value="Sign In" />
             <p>Don't have an account?</p>
             <Link to="sign-up">Sign Up Now</Link>
@@ -81,4 +109,18 @@ class Login extends Component {
   }
 }
 
-export default Login;
+const mapStateToProps = ({ users }) => {
+  return {
+    messages: users,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    LoginUser: (username, password) => {
+      dispatch(LoginUser(username, password));
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

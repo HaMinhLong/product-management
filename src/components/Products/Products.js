@@ -61,7 +61,8 @@ class Products extends Component {
     });
   };
 
-  loadProducts = () => {
+  componentDidMount = () => {
+    this.props.fetchProducts();
     setTimeout(() => {
       this.setState({
         products: this.props.items,
@@ -70,17 +71,13 @@ class Products extends Component {
     }, 1);
   };
 
-  componentDidMount = () => {
-    this.props.fetchProducts();
-    this.loadProducts();
-  };
-
   // UNSAFE_componentWillReceiveProps(nextProps) {
   //   const { items } = this.props;
   //   console.log("nextProps: ", nextProps.items);
   //   console.log("Items: ", items);
   //   if (nextProps.items !== items) {
   //     this.setState({
+  //       ...this.state,
   //       products: nextProps.items,
   //     });
   //   }
@@ -129,9 +126,9 @@ class Products extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ products }) => {
   return {
-    items: state.products,
+    items: products,
   };
 };
 
