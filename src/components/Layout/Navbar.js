@@ -3,6 +3,10 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 class Navbar extends Component {
+  LogOut = () => {
+    window.localStorage.setItem("status", "");
+    window.location = "/";
+  };
   render() {
     return (
       <header className="header">
@@ -18,6 +22,12 @@ class Navbar extends Component {
             </li>
             <li>
               <Link to="/add-product">Thêm sản phẩm</Link>
+            </li>
+            <li>
+              <i
+                className="fas fa-sign-out-alt"
+                onClick={() => this.LogOut()}
+              ></i>
             </li>
           </ul>
         </div>

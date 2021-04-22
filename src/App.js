@@ -9,7 +9,7 @@ class App extends Component {
       <div>
         <Router>
           <Switch>
-            {localStorage.getItem("user") ? (
+            {localStorage.getItem("status") ? (
               <Route path="/" render={() => <Home />} />
             ) : (
               <Route path="/" render={() => <LoginPage />} />

@@ -78,6 +78,11 @@ header {
           font-size: 15px;
           font-weight: bold;
         }
+        i {
+          cursor: pointer;
+          font-size: 20px;
+          color: #222;
+        }
       }
     }
   }
@@ -825,6 +830,22 @@ header {
           border-bottom: 2px solid #000;
         }
       }
+      .error-messages {
+        width: 100%;
+        ul {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          li {
+            list-style: none;
+            p {
+              color: red;
+              margin-bottom: 5px;
+            }
+          }
+        }
+      }
       p {
         a {
           display: block;
@@ -860,7 +881,7 @@ header {
 // SIGN UP PAGE
 .sign-up-page {
   .sign-up-form {
-    height: 800px;
+    height: 830px;
     padding: 30px 30px 0px;
   }
 }

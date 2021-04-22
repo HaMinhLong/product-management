@@ -1,16 +1,11 @@
 {
   "users": [
     {
-      "username": "nar",
-      "password": "1234",
-      "phoneNumber": "1234",
-      "permission": "1"
-    },
-    {
-      "username": "san",
-      "password": "1234",
-      "phoneNumber": "1234",
-      "permission": "2"
+      "fullName": "Ha Minh Long",
+      "username": "Long",
+      "password": "long",
+      "phoneNumber": "0963339657",
+      "address": "VietNam"
     }
   ]
 }

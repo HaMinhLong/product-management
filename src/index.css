@@ -76,6 +76,11 @@ header .links ul li a {
   font-size: 15px;
   font-weight: bold;
 }
+header .links ul li i {
+  cursor: pointer;
+  font-size: 20px;
+  color: #222;
+}
 
 .banner {
   position: relative;
@@ -886,6 +891,54 @@ header .links ul li a {
 .forgot-password-page .forgot-password-form form div input:focus {
   border-bottom: 2px solid #000;
 }
+.login-page .login-form form .error-messages,
+.login-page .sign-up-form form .error-messages,
+.login-page .forgot-password-form form .error-messages,
+.sign-up-page .login-form form .error-messages,
+.sign-up-page .sign-up-form form .error-messages,
+.sign-up-page .forgot-password-form form .error-messages,
+.forgot-password-page .login-form form .error-messages,
+.forgot-password-page .sign-up-form form .error-messages,
+.forgot-password-page .forgot-password-form form .error-messages {
+  width: 100%;
+}
+.login-page .login-form form .error-messages ul,
+.login-page .sign-up-form form .error-messages ul,
+.login-page .forgot-password-form form .error-messages ul,
+.sign-up-page .login-form form .error-messages ul,
+.sign-up-page .sign-up-form form .error-messages ul,
+.sign-up-page .forgot-password-form form .error-messages ul,
+.forgot-password-page .login-form form .error-messages ul,
+.forgot-password-page .sign-up-form form .error-messages ul,
+.forgot-password-page .forgot-password-form form .error-messages ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.login-page .login-form form .error-messages ul li,
+.login-page .sign-up-form form .error-messages ul li,
+.login-page .forgot-password-form form .error-messages ul li,
+.sign-up-page .login-form form .error-messages ul li,
+.sign-up-page .sign-up-form form .error-messages ul li,
+.sign-up-page .forgot-password-form form .error-messages ul li,
+.forgot-password-page .login-form form .error-messages ul li,
+.forgot-password-page .sign-up-form form .error-messages ul li,
+.forgot-password-page .forgot-password-form form .error-messages ul li {
+  list-style: none;
+}
+.login-page .login-form form .error-messages ul li p,
+.login-page .sign-up-form form .error-messages ul li p,
+.login-page .forgot-password-form form .error-messages ul li p,
+.sign-up-page .login-form form .error-messages ul li p,
+.sign-up-page .sign-up-form form .error-messages ul li p,
+.sign-up-page .forgot-password-form form .error-messages ul li p,
+.forgot-password-page .login-form form .error-messages ul li p,
+.forgot-password-page .sign-up-form form .error-messages ul li p,
+.forgot-password-page .forgot-password-form form .error-messages ul li p {
+  color: red;
+  margin-bottom: 5px;
+}
 .login-page .login-form form p a,
 .login-page .sign-up-form form p a,
 .login-page .forgot-password-form form p a,
@@ -938,7 +991,7 @@ header .links ul li a {
 }
 
 .sign-up-page .sign-up-form {
-  height: 800px;
+  height: 830px;
   padding: 30px 30px 0px;
 }
 
