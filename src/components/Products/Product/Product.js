@@ -34,7 +34,7 @@ class Product extends Component {
             <span className="new">New</span>
           </div>
           <div className="description">
-            <p>{product.describe}</p>
+            <p>{product.describe.slice(0, 45)} . . .</p>
           </div>
           <div className="colors-container">
             {product.colors &&

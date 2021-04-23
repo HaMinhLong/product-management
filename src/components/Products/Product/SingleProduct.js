@@ -62,9 +62,27 @@ class SingleProduct extends Component {
         ) : (
           <section className="single-product-container">
             <section className="single-product">
+              <div className="img-box">
+                <div>
+                  <div className="lens"></div>
+                  <img src={this.state.image} alt="" />
+                </div>
+                <div className="img-slider">
+                  {product.images &&
+                    product.images.length > 0 &&
+                    product.images.map((image) => (
+                      <div onClick={() => this.changeImage(image)} key={image}>
+                        <img id="featured" src={image} alt="" />
+                      </div>
+                    ))}
+                </div>
+              </div>
               <div className="product-info">
                 <p>{product.name}</p>
                 <p className="new">New</p>
+                <div className="product-describe">
+                  <p>{product.describe}</p>
+                </div>
                 <div className="colors-container">
                   <span>Colors: </span>
                   {product.colors &&
@@ -86,6 +104,7 @@ class SingleProduct extends Component {
                       <span key={size}>{size}</span>
                     ))}
                 </div>
+                <div className="bg"></div>
                 <div className="buy-price">
                   <Link to="/" className="buy">
                     <i className="fas fa-shopping-cart"></i>
@@ -96,29 +115,10 @@ class SingleProduct extends Component {
                     <p>{product.price}</p>
                   </div>
                 </div>
+                <section className="contact">
+                  <img src={phone} alt="phone icon" />
+                </section>
               </div>
-              <div className="img-box">
-                <div>
-                  <div className="lens"></div>
-                  <img src={this.state.image} alt="" />
-                </div>
-                <div className="img-slider">
-                  {product.images &&
-                    product.images.length > 0 &&
-                    product.images.map((image) => (
-                      <div onClick={() => this.changeImage(image)} key={image}>
-                        <img id="featured" src={image} alt="" />
-                      </div>
-                    ))}
-                </div>
-              </div>
-              <div className="product-describe">
-                <p>{product.describe}</p>
-              </div>
-            </section>
-            <section className="contact">
-              <img src={phone} alt="phone icon" />
-              <p>Gọi điện để nhận tư vấn miễn phí</p>
             </section>
           </section>
         )}
