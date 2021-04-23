@@ -6,6 +6,9 @@ import Categories from "./Categories";
 import Banner from "../Layout/Banner";
 import { connect } from "react-redux";
 // import * as actions from "../../redux/Product/productsTypes";
+
+import filter from "../../images/filter.svg";
+
 import {
   fetchProducts,
   deleteProduct,
@@ -92,6 +95,14 @@ class Products extends Component {
     }, 1);
   };
 
+  toggleFilter = () => {
+    const categoriesIcon = document.querySelector(".categories-icon");
+    const categories = document.querySelector(".categories-container");
+    categoriesIcon.addEventListener("click", () => {
+      categories.classList.add("active");
+    });
+  };
+
   render() {
     const { products } = this.state;
 
@@ -99,8 +110,20 @@ class Products extends Component {
       <section>
         <Banner title={["Danh sách sản phẩm"]} />
         <section className="main-container">
-          <Categories filterProducts={this.filterProducts} />
+          <div className="categories-icon" onClick={() => this.toggleFilter()}>
+            <img src={filter} alt="filter icon" />
+            <p>Bộ lọc</p>
+          </div>
+          <Categories
+            products={this.state.filterProducts}
+            filterProducts={this.filterProducts}
+            sortProductsByPrice={this.sortProductsByPrice}
+            filterProductsBySizes={this.filterProductsBySizes}
+          />
           <section className="products-container">
+            <p>
+              Hiển thị <span>{products.length}</span> sản phẩm
+            </p>
             <Filter
               products={this.state.filterProducts}
               listProducts={this.state.products}
