@@ -53,3 +53,19 @@ export const deleteProduct = (id) => async (dispatch) => {
     console.log("Error Delete Product: " + error.message);
   }
 };
+
+export const updateProduct = (product) => (dispatch) => {
+  try {
+    for (var i = 0; i < data.products.length; i++) {
+      if (data.products[i].id === product.id) {
+        data.products[i] = product;
+      }
+    }
+    dispatch({
+      type: actions.UPDATE_PRODUCT,
+      payload: product,
+    });
+  } catch (error) {
+    console.log("Error Update Product: " + error.message);
+  }
+};

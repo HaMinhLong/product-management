@@ -127,9 +127,9 @@ class SingleProduct extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ products }) => {
   return {
-    product: state.products,
+    product: products,
   };
 };
 

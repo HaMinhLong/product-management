@@ -15,6 +15,7 @@ class Home extends Component {
         <Switch>
           <Route exact path="/" component={Products} />
           <Route exact path="/add-product" component={AddProduct} />
+          <Route exact path="/add-product-:id" component={AddProduct} />
           <Route path="/products/:id" component={SingleProduct} />
           <Route path="*" component={NoMatch} />
         </Switch>
