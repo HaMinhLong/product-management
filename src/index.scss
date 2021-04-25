@@ -27,7 +27,7 @@ header {
   padding-right: 177px;
   background: #fff;
   box-shadow: 0px 8px 20px #0000001a;
-  z-index: 100;
+  z-index: 101;
   .logo {
     a {
       font-size: 24px;
@@ -45,7 +45,7 @@ header {
       li {
         position: relative;
         list-style: none;
-        margin-right: 68px;
+        margin-left: 68px;
         .icon {
           position: absolute;
           top: 4px;
@@ -1044,7 +1044,7 @@ header {
 .page-not-found {
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  min-height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1072,9 +1072,99 @@ header {
 }
 
 // RESPONSIVE PAGE
-@media (max-width: 500px) {
+@media (max-width: 1680px) {
   header {
-    padding: 29px 16px 29px 17px;
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+  .banner {
+    padding-left: 80px;
+    p {
+      font-size: 40px;
+    }
+  }
+  .main-container {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+  .single-product-container {
+    padding-left: 80px;
+  }
+  .add-product {
+    padding-left: 80px;
+  }
+}
+
+@media (max-width: 1440px) {
+  .page-not-found {
+    h1 {
+      font-size: 50px;
+    }
+    p {
+      font-size: 16px;
+      padding-top: 20px;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  header {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  .banner {
+    padding-left: 50px;
+    p {
+      font-size: 35px;
+    }
+  }
+  .main-container {
+    padding-left: 50px;
+    padding-right: 50px;
+    .products-container {
+      .products {
+        .product-container {
+          .product-details {
+            .product-name {
+              h1 {
+                font-size: 25px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .single-product-container {
+    padding-left: 50px;
+    .single-product {
+      .img-box {
+        div {
+          img {
+            height: 410px;
+          }
+        }
+        .img-slider {
+          height: 70px;
+          img {
+            width: 70px;
+            height: 70px;
+          }
+        }
+      }
+    }
+  }
+  .add-product {
+    padding-left: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  p, a {
+    font-size: 18px;
+  }
+  header {
+    padding: 29px 16px 29px 50px;
     z-index: 200;
     .links {
       position: fixed;
@@ -1093,8 +1183,8 @@ header {
       transition: 0.5s;
       .close {
         position: absolute;
-        top: 15px;
-        right: 20px;
+        top: 40px;
+        right: 50px;
         width: 20px;
         height: 20px;
         cursor: pointer;
@@ -1122,6 +1212,7 @@ header {
       ul {
         flex-direction: column;
         li {
+          margin-left: 0px;
           margin-bottom: 62px;
           cursor: pointer;
           .icon {
@@ -1142,7 +1233,7 @@ header {
     .toggle-links {
       position: absolute;
       top: 28px;
-      right: 16px;
+      right: 50px;
       width: 29px;
       height: 29px;
       cursor: pointer;
@@ -1179,7 +1270,7 @@ header {
   }
   .banner {
     flex-direction: column-reverse;
-    padding-left: 17px;
+    padding-left: 50px;
     background: url("https://i.pinimg.com/236x/b6/d6/97/b6d697f9bfdd96858506d6f8f1ef5cb6.jpg");
     background-size: cover;
     width: 100%;
@@ -1191,7 +1282,7 @@ header {
     }
   }
   .main-container {
-    padding: 0px 16px 20px 17px;
+    padding: 0px 50px 20px 50px;
     flex-direction: column;
     .categories-icon {
       display: flex;
@@ -1218,7 +1309,7 @@ header {
       padding-top: 34px;
       #close-filter {
         position: absolute;
-        top: 15px;
+        top: 28px;
         right: 21px;
         width: 20px;
         height: 20px;
@@ -1297,23 +1388,35 @@ header {
       }
       .products {
         width: 100%;
-        padding-top: 10px;
+        padding-top: 50px;
         padding-bottom: 0px;
         .product-container {
           flex-direction: column;
           width: 100%;
           height: 100%;
+          .menu-items {
+            .menu-item {
+              width: 80%;
+              height: 250px;
+            }
+          }
           .img-box {
             margin-right: 0px;
             width: 100%;
-            height: 232px;
-            background: #013991;
+            height: 400px;
+            background: whitesmoke;
             border-radius: 8px;
             img {
               width: 100%;
               height: 100%;
             }
           }
+          .menu-items {
+            .menu-item {
+              width: 60%;
+              height: 350px;
+            }
+       }
           .product-details {
             .product-name {
               margin-top: 28px;
@@ -1321,8 +1424,8 @@ header {
                 font-size: 20px;
                 color: #222;
               }
+              background: transparent;
               span {
-                background: transparent;
                 color: #013991;
               }
             }
@@ -1357,12 +1460,24 @@ header {
               }
             }
           }
+          .delete-box {
+            .confirm-delete-box {
+              width: 60%;
+              height: 350px;
+              p {
+                font-size: 16px;
+                text-align: center;
+                padding: 20px;
+                margin-bottom: 10px;
+              }
+            }
+          }
         }
       }
     }
   }
   .add-product {
-    padding: 20px 16px 20px 17px;
+    padding: 20px 50px 20px 50px;
     form {
       padding: 30px 0 0 0;
       width: 100%;
@@ -1375,13 +1490,125 @@ header {
     }
   }
   .single-product-container {
-    padding: 20px 16px 20px 17px;
+    padding: 20px 50px 20px 50px;
     flex-direction: column;
     .single-product {
       width: 100%;
       flex-direction: column;
       .img-box {
         width: 100%;
+        div {
+          img {
+            height: 450px;
+          }
+        }
+        .img-slider {
+          height: 70px;
+          img {
+            width: 70px;
+            height: 70px;
+          }
+        }
+      }
+      .product-info {
+        width: 100%;
+        height: 100%;
+        margin-left: 0;
+        .product-describe {
+          width: 100%;
+        }
+        .contact {
+          right: 10px;
+          bottom: 10px;
+          width: 35px;
+          height: 35px;
+          img {
+            width: 15px;
+            height: 15px;
+          }
+        }
+      }
+    }
+  }
+  .login-page,
+  .sign-up-page,
+  .forgot-password-page {
+    width: 100%;
+    height: 100%;
+    padding: 100px;
+    .login-form,
+    .sign-up-form,
+    .forgot-password-form {
+      width: 100%;
+      height: 100%;
+      border: none;
+      box-shadow: none;
+      padding-top: 0px;
+      padding-bottom: 50px;
+      input {
+        margin-top: 20px;
+      }
+    }
+  }
+  .page-not-found {
+    h1 {
+      font-size: 20px;
+    }
+    p {
+      font-size: 16px;
+      padding-top: 20px;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  p, a{
+    font-size: 16px;
+  }
+  header {
+    padding: 29px 16px 29px 17px;
+    .links {
+      .close {
+        top: 28px;
+        right: 20px;
+      }
+    }
+    .toggle-links {
+      right: 16px;
+    }
+  }
+  .banner {
+    padding-left: 17px;
+  }
+  .main-container {
+    padding-right: 16px;
+    padding-left: 17px;
+    .products-container {
+      .products {
+        padding-top: 10px;
+        .product-container {
+          .img-box {
+            height: 232px;
+          }
+          .delete-box {
+            .confirm-delete-box {
+              width: 80%;
+              height: 250px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .add-product {
+    padding-left: 17px;
+    padding-right: 16px;
+  }
+  .single-product-container {
+    padding-right: 16px;
+    padding-left: 17px;
+    .single-product {
+      .img-box {
         div {
           img {
             height: 250px;
@@ -1418,17 +1645,23 @@ header {
   .login-page,
   .sign-up-page,
   .forgot-password-page {
-    width: 100%;
-    height: 100%;
+    padding: 0px;
     .login-form,
     .sign-up-form,
     .forgot-password-form {
-      width: 100%;
-      height: 100%;
-      border: none;
-      box-shadow: none;
       padding-top: 20px;
-      padding-bottom: 50px;
+    }
+    input {
+      margin-top: 0;
+    }
+  }
+  .page-not-found {
+    h1 {
+      font-size: 20px;
+    }
+    p {
+      font-size: 16px;
+      padding-top: 20px;
     }
   }
 }
