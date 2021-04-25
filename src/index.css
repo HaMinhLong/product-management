@@ -312,6 +312,7 @@ header .links #log-out {
   padding-bottom: 201px;
 }
 .main-container .products-container .products .product-container {
+  position: relative;
   margin-bottom: 54px;
   width: 100%;
   height: 193px;
@@ -319,6 +320,85 @@ header .links #log-out {
   justify-content: flex-start;
   align-items: center;
   box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.1);
+}
+.main-container .products-container .products .product-container .toggle-menu {
+  position: absolute;
+  top: 10px;
+  right: 5px;
+  width: 25px;
+  height: 10px;
+  cursor: pointer;
+  z-index: 100;
+}
+.main-container .products-container .products .product-container .toggle-menu .button {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #222;
+}
+.main-container .products-container .products .product-container .toggle-menu .button:after,
+.main-container .products-container .products .product-container .toggle-menu .button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #222;
+}
+.main-container .products-container .products .product-container .toggle-menu .button:after {
+  left: 8px;
+}
+.main-container .products-container .products .product-container .toggle-menu .button:before {
+  left: 16px;
+}
+.main-container .products-container .products .product-container .menu-items {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 100;
+}
+.main-container .products-container .products .product-container .menu-items .menu-item {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border-radius: 10px;
+}
+.main-container .products-container .products .product-container .menu-items .menu-item a {
+  text-decoration: none;
+  font-weight: bold;
+  margin-bottom: 25px;
+  color: #000;
+}
+.main-container .products-container .products .product-container .menu-items .menu-item a:hover {
+  color: blue;
+}
+.main-container .products-container .products .product-container .menu-items .menu-item p {
+  font-weight: bold;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  cursor: pointer;
+}
+.main-container .products-container .products .product-container .menu-items .menu-item p:nth-child(3):hover {
+  color: gray;
+}
+.main-container .products-container .products .product-container .menu-items .menu-item p:hover {
+  color: red;
 }
 .main-container .products-container .products .product-container .img-box {
   width: 270px;
@@ -683,6 +763,7 @@ header .links #log-out {
   width: 25px;
   height: 25px;
   transition: 0.5s;
+  animation: animationContact 2s linear infinite;
 }
 .single-product-container .contact img:hover {
   transform: scale(1.2);
@@ -696,6 +777,20 @@ header .links #log-out {
   font-weight: bold;
 }
 
+@keyframes animationContact {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  10% {
+    transform: rotateZ(-20deg);
+  }
+  20% {
+    transform: rotateZ(0deg) scale(1.2);
+  }
+  100% {
+    transform: rotateZ(0deg) scale(1);
+  }
+}
 .add-product {
   position: relative;
   top: 76px;
@@ -716,20 +811,31 @@ header .links #log-out {
   font-weight: bold;
   margin-bottom: 5px;
 }
+.add-product form textarea {
+  width: 90%;
+  margin-bottom: 20px;
+  min-height: 150px;
+  padding: 10px;
+  border: 1px solid #000;
+  outline: none;
+  transition: 0.2s;
+}
+.add-product form textarea:focus {
+  border-color: #ff1944;
+}
 .add-product form input[type=text],
 .add-product form input[type=number] {
-  width: 70%;
+  width: 90%;
   height: 30px;
   margin-bottom: 20px;
   background: transparent;
   border: none;
   outline: none;
   border-bottom: 1px solid #000;
-  transition: 0.5s;
+  transition: 0.2s;
 }
 .add-product form input[type=text]:focus,
 .add-product form input[type=number]:focus {
-  width: 90%;
   border-bottom: 1px solid #ff1944;
 }
 .add-product form input[type=file] {
@@ -760,6 +866,27 @@ header .links #log-out {
   text-transform: uppercase;
   font-weight: bold;
   cursor: pointer;
+}
+.add-product form .images-box {
+  width: 90%;
+  height: 50px;
+  margin-bottom: 20px;
+  display: flex;
+}
+.add-product form .images-box .image-box {
+  margin-right: 10px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+.add-product form .images-box .image-box img {
+  width: 100%;
+  height: 100%;
+  transition: 0.5s;
+  border-radius: 10px;
+}
+.add-product form .images-box .image-box img:hover {
+  transform: scale(1.2);
 }
 .add-product .create-product-success p {
   padding: 10px 25px;
@@ -1076,6 +1203,7 @@ header .links #log-out {
 @media (max-width: 500px) {
   header {
     padding: 29px 16px 29px 17px;
+    z-index: 200;
   }
   header .links {
     position: fixed;
@@ -1215,7 +1343,7 @@ header .links #log-out {
     width: 100%;
     height: 100%;
     background: #fff;
-    z-index: 100;
+    z-index: 300;
     transition: 0.5s;
     padding-left: 41px;
     padding-top: 34px;
@@ -1376,14 +1504,9 @@ header .links #log-out {
     width: 100%;
   }
   .add-product form input[type=text],
-.add-product form input[type=number] {
-    width: 100%;
-  }
-  .add-product form input[type=text]:focus,
-.add-product form input[type=number]:focus {
-    width: 100%;
-  }
-  .add-product form input[type=submit] {
+.add-product form textarea,
+.add-product form input[type=number],
+.add-product form input[type=submit] {
     width: 100%;
   }
 

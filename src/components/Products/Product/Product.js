@@ -6,7 +6,8 @@ class Product extends Component {
     super(props);
 
     this.state = {
-      confirmDeleteBox: false,
+      deleteBox: false,
+      menu: false,
     };
   }
 
@@ -14,7 +15,19 @@ class Product extends Component {
     this.props.deleteProduct(this.props.product.id);
     // this.props.filterProduct(this.props.product.id);
     this.setState({
-      confirmDeleteBox: false,
+      deleteBox: false,
+    });
+  };
+
+  toggleMenu = () => {
+    this.setState({
+      menu: this.state.menu ? false : true,
+    });
+  };
+
+  toggleDelete = () => {
+    this.setState({
+      deleteBox: this.state.deleteBox ? false : true,
     });
   };
 
@@ -23,6 +36,19 @@ class Product extends Component {
 
     return (
       <section className="product-container">
+        <div className="toggle-menu" onClick={() => this.toggleMenu()}>
+          <div className="button"></div>
+        </div>
+        {this.state.menu && (
+          <div className="menu-items">
+            <div className="menu-item">
+              <Link to={`/add-product-${product.id}`}>Update</Link>
+              <p onClick={() => this.toggleDelete()}>Delete</p>
+              <p onClick={() => this.toggleMenu()}>Cancel</p>
+            </div>
+          </div>
+        )}
+
         <div className="img-box">
           <Link to={`./products/${product.id}`}>
             <img src={product.images[0]} alt="" />
@@ -68,26 +94,17 @@ class Product extends Component {
           </div>
 
           <div className="delete-product">
-            <i
-              className="fas fa-trash"
-              onClick={() =>
-                this.setState({
-                  confirmDeleteBox: this.state.confirmDeleteBox ? false : true,
-                })
-              }
-            ></i>
+            <i className="fas fa-trash" onClick={() => this.toggleDelete()}></i>
           </div>
         </div>
-        {this.state.confirmDeleteBox && (
+        {this.state.deleteBox && (
           <div className="delete-box">
             <div className="confirm-delete-box">
               <p>Bạn có muốn xóa sản phẩm này không?</p>
               <div className="delete">
                 <button onClick={() => this.deleteProduct()}>Delete</button>
 
-                <button
-                  onClick={() => this.setState({ confirmDeleteBox: false })}
-                >
+                <button onClick={() => this.setState({ deleteBox: false })}>
                   Cancel
                 </button>
               </div>

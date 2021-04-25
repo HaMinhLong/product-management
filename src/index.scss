@@ -298,6 +298,7 @@ header {
       padding-top: 22.5px;
       padding-bottom: 201px;
       .product-container {
+        position: relative;
         margin-bottom: 54px;
         width: 100%;
         height: 193px;
@@ -305,6 +306,86 @@ header {
         justify-content: flex-start;
         align-items: center;
         box-shadow: 2px 5px 10px rgba($color: #000000, $alpha: 0.1);
+        .toggle-menu {
+          position: absolute;
+          top: 10px;
+          right: 5px;
+          width: 25px;
+          height: 10px;
+          cursor: pointer;
+          z-index: 100;
+          .button {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: #222;
+          }
+          .button:after,
+          .button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: #222;
+          }
+          .button:after {
+            left: 8px;
+          }
+          .button:before {
+            left: 16px;
+          }
+        }
+        .menu-items {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba($color: #000000, $alpha: 0.3);
+          z-index: 100;
+          .menu-item {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #fff;
+            border-radius: 10px;
+            a {
+              text-decoration: none;
+              font-weight: bold;
+              margin-bottom: 25px;
+              color: #000;
+            }
+            a:hover {
+              color: blue;
+            }
+            p {
+              font-weight: bold;
+              margin-top: 25px;
+              margin-bottom: 25px;
+              cursor: pointer;
+              &:nth-child(3):hover {
+                color: gray;
+              }
+            }
+            p:hover {
+              color: red;
+            }
+          }
+        }
+
         .img-box {
           width: 270px;
           height: 193px;
@@ -679,6 +760,7 @@ header {
       width: 25px;
       height: 25px;
       transition: 0.5s;
+      animation: animationContact 2s linear infinite;
     }
     img:hover {
       transform: scale(1.2);
@@ -691,6 +773,21 @@ header {
       text-transform: uppercase;
       font-weight: bold;
     }
+  }
+}
+
+@keyframes animationContact {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  10% {
+    transform: rotateZ(-20deg);
+  }
+  20% {
+    transform: rotateZ(0deg) scale(1.2);
+  }
+  100% {
+    transform: rotateZ(0deg) scale(1);
   }
 }
 
@@ -713,20 +810,31 @@ header {
       font-weight: bold;
       margin-bottom: 5px;
     }
+    textarea {
+      width: 90%;
+      margin-bottom: 20px;
+      min-height: 150px;
+      padding: 10px;
+      border: 1px solid #000;
+      outline: none;
+      transition: 0.2s;
+    }
+    textarea:focus {
+      border-color: #ff1944;
+    }
     input[type="text"],
     input[type="number"] {
-      width: 70%;
+      width: 90%;
       height: 30px;
       margin-bottom: 20px;
       background: transparent;
       border: none;
       outline: none;
       border-bottom: 1px solid #000;
-      transition: 0.5s;
+      transition: 0.2s;
     }
     input[type="text"]:focus,
     input[type="number"]:focus {
-      width: 90%;
       border-bottom: 1px solid #ff1944;
     }
     input[type="file"] {
@@ -758,6 +866,27 @@ header {
       text-transform: uppercase;
       font-weight: bold;
       cursor: pointer;
+    }
+    .images-box {
+      width: 90%;
+      height: 50px;
+      margin-bottom: 20px;
+      display: flex;
+      .image-box {
+        margin-right: 10px;
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+        img {
+          width: 100%;
+          height: 100%;
+          transition: 0.5s;
+          border-radius: 10px;
+        }
+        img:hover {
+          transform: scale(1.2);
+        }
+      }
     }
   }
   .create-product-success {
@@ -946,6 +1075,7 @@ header {
 @media (max-width: 500px) {
   header {
     padding: 29px 16px 29px 17px;
+    z-index: 200;
     .links {
       position: fixed;
       top: 0;
@@ -1082,7 +1212,7 @@ header {
       width: 100%;
       height: 100%;
       background: #fff;
-      z-index: 100;
+      z-index: 300;
       transition: 0.5s;
       padding-left: 41px;
       padding-top: 34px;
@@ -1237,13 +1367,8 @@ header {
       padding: 30px 0 0 0;
       width: 100%;
       input[type="text"],
-      input[type="number"] {
-        width: 100%;
-      }
-      input[type="text"]:focus,
-      input[type="number"]:focus {
-        width: 100%;
-      }
+      textarea,
+      input[type="number"],
       input[type="submit"] {
         width: 100%;
       }

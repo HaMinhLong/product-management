@@ -2,7 +2,12 @@ import React, { Component } from "react";
 import Banner from "../Layout/Banner";
 import { connect } from "react-redux";
 import FileBase from "react-file-base64";
-import { createProduct } from "../../redux/Product/productsActions";
+import {
+  createProduct,
+  fetchProduct,
+  updateProduct,
+} from "../../redux/Product/productsActions";
+
 export class AddProduct extends Component {
   constructor(props) {
     super(props);
@@ -36,44 +41,95 @@ export class AddProduct extends Component {
 
   addProduct = (e) => {
     e.preventDefault();
-    console.log(this.state.product);
     this.props.createProduct(this.state.product);
-    this.clear();
     this.setState({
       createProductSuccess: true,
     });
     this.props.history.push("/");
   };
 
-  clear = () => {
-    this.setState({
-      id: Math.random(),
-      name: "",
-      price: "",
-      images: [],
-      colors: [],
-      availableSizes: [],
-      describe: "",
-      category: "shirt",
-    });
+  updateProduct = (e) => {
+    e.preventDefault();
+    this.props.updateProduct(this.state.product);
+    this.props.history.push("/");
   };
 
-  handleChange = (e) => {
+  deleteImage = (image) => {
     this.setState({
       ...this.state,
       product: {
         ...this.state.product,
-        [e.target.name]: e.target.value,
+        images: this.state.product.images.filter((img) => img !== image),
       },
     });
+  };
+
+  handleChange = (e) => {
+    if (e.target.name === "colors" || e.target.name === "availableSizes") {
+      this.setState({
+        ...this.state,
+        product: {
+          ...this.state.product,
+          [e.target.name]: [e.target.value],
+        },
+      });
+    } else {
+      this.setState({
+        ...this.state,
+        product: {
+          ...this.state.product,
+          [e.target.name]: e.target.value,
+        },
+      });
+    }
+  };
+
+  componentDidMount = () => {
+    if (this.props.match.url !== "/add-product") {
+      const idProduct = this.props.match.url.slice(
+        13,
+        this.props.match.url.length
+      );
+      this.props.fetchProduct(idProduct);
+    }
+  };
+
+  UNSAFE_componentWillReceiveProps = (nextProps) => {
+    const { product } = this.props;
+    if (nextProps.product !== product) {
+      this.setState({
+        product: {
+          id: nextProps.product[0].id,
+          name: nextProps.product[0].name,
+          price: nextProps.product[0].price,
+          images: nextProps.product[0].images,
+          colors: nextProps.product[0].colors,
+          availableSizes: nextProps.product[0].availableSizes,
+          describe: nextProps.product[0].describe,
+          category: nextProps.product[0].category,
+        },
+      });
+    }
   };
 
   render() {
     return (
       <section>
-        <Banner title={["Thêm sản phẩm"]} />
+        <Banner
+          title={
+            this.props.match.url === "/add-product"
+              ? ["Thêm sản phẩm"]
+              : ["Cập nhật sản phẩm"]
+          }
+        />
         <section className="add-product">
-          <form onSubmit={(e) => this.addProduct(e)}>
+          <form
+            onSubmit={
+              this.props.match.url === "/add-product"
+                ? (e) => this.addProduct(e)
+                : (e) => this.updateProduct(e)
+            }
+          >
             <label htmlFor="name">Name: </label>
             <input
               autoFocus
@@ -81,26 +137,29 @@ export class AddProduct extends Component {
               name="name"
               id="name"
               required
+              value={this.state.product.name || ""}
               onChange={(e) => {
                 this.handleChange(e);
               }}
             />
             <label htmlFor="describe">Describe: </label>
-            <input
+            <textarea
               type="text"
               name="describe"
               id="describe"
               required
+              value={this.state.product.describe}
               onChange={(e) => {
                 this.handleChange(e);
               }}
-            />
+            ></textarea>
             <label htmlFor="price">Price: </label>
             <input
               type="number"
               name="price"
               id="price"
               required
+              value={this.state.product.price}
               onChange={(e) => {
                 this.handleChange(e);
               }}
@@ -114,11 +173,22 @@ export class AddProduct extends Component {
                   this.setState({
                     product: {
                       ...this.state.product,
-                      images: [base64],
+                      images: [...this.state.product.images, base64],
                     },
                   })
                 }
               />
+            </div>
+            <div className="images-box">
+              {this.state.product.images.map((image) => (
+                <div key={image} className="image-box">
+                  <img
+                    src={image}
+                    alt=""
+                    onClick={() => this.deleteImage(image)}
+                  />
+                </div>
+              ))}
             </div>
             <div>
               <label htmlFor="colors">Colors: </label>
@@ -160,6 +230,12 @@ export class AddProduct extends Component {
                 ))}
               </select>
             </div>
+            <input
+              type="text"
+              name="colors"
+              value={this.state.product.colors}
+              onChange={(e) => this.handleChange(e)}
+            />
             <div>
               <label htmlFor="availableSizes">Available Sizes: </label>
               <select
@@ -192,7 +268,12 @@ export class AddProduct extends Component {
                 <option value="XXL">XXL</option>
               </select>
             </div>
-
+            <input
+              type="text"
+              name="availableSizes"
+              value={this.state.product.availableSizes}
+              onChange={(e) => this.handleChange(e)}
+            />
             <div>
               <label htmlFor="category">Category: </label>
               <select
@@ -209,8 +290,14 @@ export class AddProduct extends Component {
                 <option value="shoes">shoes</option>
               </select>
             </div>
-
-            <input type="submit" value="Add Product" />
+            <input
+              type="submit"
+              value={
+                this.props.match.url === "/add-product"
+                  ? "Add Product"
+                  : "Update Product"
+              }
+            />
           </form>
           {this.state.createProductSuccess && (
             <div className="create-product-success">
@@ -223,12 +310,24 @@ export class AddProduct extends Component {
   }
 }
 
+const mapStateToProps = ({ products }) => {
+  return {
+    product: products,
+  };
+};
+
 const mapDispatchToProps = (dispatch) => {
   return {
     createProduct: (product) => {
       dispatch(createProduct(product));
     },
+    fetchProduct: (id) => {
+      dispatch(fetchProduct(id));
+    },
+    updateProduct: (product) => {
+      dispatch(updateProduct(product));
+    },
   };
 };
 
-export default connect(null, mapDispatchToProps)(AddProduct);
+export default connect(mapStateToProps, mapDispatchToProps)(AddProduct);
